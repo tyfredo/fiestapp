@@ -7,6 +7,8 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 
+import ScrollToTop from './components/ScrollToTop';
+
 
 function App() {
   useEffect(() => {
@@ -15,6 +17,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         {/* --- PÁGINA DE INICIO: SHOWROOM DE PORTAFOLIO --- */}
         <Route path="/" element={
