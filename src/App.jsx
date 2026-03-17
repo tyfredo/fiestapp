@@ -34,7 +34,7 @@ function App() {
               </p>
             </header>
             
-            <main className="max-w-6xl mx-auto py-20 px-6 grid md:grid-cols-3 gap-10">
+            <main className="max-w-6xl mx-auto py-10 px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
               
               {/* CARD BODA */}
               <Link to="/boda-elegante-demo" className="group block bg-white p-10 rounded-3xl shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 text-center border border-stone-100">

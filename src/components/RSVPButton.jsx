@@ -6,7 +6,7 @@ const RSVPButton = ({ phone, eventName }) => {
       href={`https://wa.me/${phone}?text=${message}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform flex items-center justify-center"
+      className="flex items-center justify-center gap-2 bg-[#25D366] text-white px-6 py-4 rounded-full shadow-2xl text-lg font-bold"
       title="Confirmar por WhatsApp"
     >
       <span className="font-bold">Confirmar Asistencia</span>

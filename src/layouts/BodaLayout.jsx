@@ -21,7 +21,7 @@ const BodaLayout = () => {
         <div className="absolute inset-0 bg-black/30"></div> {/* Overlay para que se lea el texto */}
         <div className="relative z-10 text-white">
           <h2 className="text-xl uppercase tracking-[0.3em] mb-4">Nuestra Boda</h2>
-          <h1 className="text-6xl md:text-8xl mb-6">Elisa & Marcos</h1>
+          <h1 className="text-5xl md:text-8xl font-cursive text-stone-800 my-4">Elisa & Marcos</h1>
           <p className="text-lg italic text-stone-200">"El amor no tiene cura, pero es la única cura para todos los males."</p>
         </div>
       </section>
