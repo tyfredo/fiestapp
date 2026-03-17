@@ -14,7 +14,7 @@ const XVLayout = () => {
         <div className="relative z-10 border-2 border-amber-200/30 p-8 md:p-16 backdrop-blur-sm">
           <h2 className="text-amber-200 text-xl tracking-[0.5em] mb-4 uppercase">Mis XV Años</h2>
           <h1 className="text-7xl md:text-9xl font-light mb-6 text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-100 to-amber-500">
-            Diana
+            fulana
           </h1>
           <p className="text-amber-100/80 tracking-widest uppercase text-sm">Agosto 15 • 2026</p>
         </div>
