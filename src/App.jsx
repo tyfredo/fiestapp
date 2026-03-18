@@ -23,7 +23,7 @@ function App() {
                 <a href="#" className="text-black text-[10px] tracking-[0.3em] uppercase font-black hover:opacity-50">Contacto</a>
               </div>
               <div className="text-black text-[10px] tracking-[0.4em] uppercase font-black hidden md:block">
-                Salamanca • México
+                México
               </div>
             </nav>
 
