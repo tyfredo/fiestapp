@@ -128,7 +128,7 @@ const XVLayout = () => {
 
       {/* CONFIRMACIÓN FLOTANTE */}
       <div className="fixed bottom-8 right-8 z-50">
-        <RSVPButton phone="524641234567" eventName="XV de Diana" />
+        <RSVPButton phone="52464" eventName="XV de Diana" />
       </div>
 
     </div>

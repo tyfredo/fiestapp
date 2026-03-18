@@ -57,7 +57,7 @@ const BodaLayout = () => {
 
       {/* 4. BOTÓN FLOTANTE RSVP (CONFIRMACIÓN) */}
       <div className="fixed bottom-8 right-8 z-50">
-        <RSVPButton phone="524641234567" eventName="Boda de Elisa y Marcos" />
+        <RSVPButton phone="52464" eventName="Boda de Elisa y Marcos" />
       </div>
     </div>
   );

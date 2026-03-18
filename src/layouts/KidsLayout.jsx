@@ -138,7 +138,7 @@ const KidsLayout = () => {
       {/* CONFIRMACIÓN FLOTANTE (Color ajustado al tema) */}
       <div className="fixed bottom-8 right-8 z-50">
         {/* Si tu RSVPButton recibe clases, aquí quedaría perfecto un botón azul o rosa */}
-        <RSVPButton phone="524641234567" eventName="Bautizo de Mateo" />
+        <RSVPButton phone="52464" eventName="Bautizo de Mateo" />
       </div>
 
     </div>
