@@ -5,23 +5,27 @@ import XVLayout from './layouts/XVLayout';
 import KidsLayout from './layouts/KidsLayout';
 import ScrollToTop from './components/ScrollToTop';
 
-// --- DATOS DE PREGUNTAS FRECUENTES ---
+// --- DATOS DE PREGUNTAS FRECUENTES (ACTUALIZADO CON MODALIDAD VIP) ---
 const faqData = [
   {
     question: "¿Mis invitados necesitan descargar alguna app?",
-    answer: "No. La invitación es un enlace web seguro que se abre al instante en cualquier navegador de iPhone o Android."
+    answer: "No. La invitación es un enlace web seguro que se abre al instante en cualquier navegador de celular o computadora."
   },
   {
     question: "¿Cuánto tiempo estará en línea mi invitación?",
     answer: "Tu enlace estará activo y funcionando perfectamente desde el momento en que lo apruebes hasta 30 días después de tu evento."
   },
   {
-    question: "¿Puedo cambiar la música y los colores?",
-    answer: "Absolutamente. Nuestros diseños son 100% personalizables. Adaptamos la tipografía, paleta de colores y música para que coincidan con la temática de tu evento."
+    question: "¿Cómo funciona la confirmación de asistencia?",
+    answer: "Incluimos un widget inteligente. Los invitados ingresan su nombre y número de acompañantes, y el sistema te envía un mensaje automático a tu WhatsApp para facilitar tu control."
   },
   {
-    question: "¿Cómo funciona la confirmación de asistencia (RSVP)?",
-    answer: "Incluimos un botón inteligente que redirige a tus invitados a tu WhatsApp con un mensaje preescrito, facilitando tu control de asistentes."
+    question: "¿Puedo limitar los pases para evitar invitados extra?",
+    answer: "¡Sí! Contamos con tecnología de 'Pases Exclusivos'. Podemos generar enlaces personalizados (ej. un link para la Familia Pérez) que bloquean el formulario y muestran un pase estricto, indicando exactamente para cuántas personas es válido."
+  },
+  {
+    question: "¿Puedo cambiar la música y los colores?",
+    answer: "Absolutamente. Nuestros diseños son 100% personalizables. Adaptamos la tipografía, paleta de colores y música para que coincidan con la estética de tu evento."
   }
 ];
 
@@ -33,7 +37,6 @@ function App() {
   // --- LÓGICA DEL ACORDEÓN (FAQ) ---
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
   const toggleFaq = (index) => {
-    // Si haces clic en el que ya está abierto, lo cierra. Si no, abre el nuevo.
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
 
@@ -204,7 +207,7 @@ function App() {
                   
                   <ul className="text-xs font-bold space-y-4 mb-12 flex-1">
                     <li>Todo lo del Paquete Esencial</li>
-                    <li className="text-amber-300">Animaciones de Entrada</li>
+                    <li className="text-amber-300">Pases VIP (Anti-Colados)</li>
                     <li className="text-amber-300">Carrusel de Fotografías</li>
                     <li className="text-amber-300">Música de Fondo Automática</li>
                     <li className="text-amber-300">Itinerario Interactivo</li>
@@ -228,14 +231,12 @@ function App() {
                     className="border-2 border-black group cursor-pointer transition-colors duration-300" 
                     onClick={() => toggleFaq(index)}
                   >
-                    {/* Título de la pregunta */}
                     <div className={`p-6 flex justify-between items-center transition-colors duration-300 ${
                       openFaqIndex === index ? 'bg-black text-white' : 'bg-white text-black group-hover:bg-stone-100'
                     }`}>
                       <h3 className="text-xs md:text-sm tracking-widest uppercase font-black pr-4 leading-relaxed">{faq.question}</h3>
                       <span className="text-2xl font-light">{openFaqIndex === index ? '−' : '+'}</span>
                     </div>
-                    {/* Respuesta Desplegable (Oculta por defecto) */}
                     <div 
                       className={`overflow-hidden transition-all duration-500 ease-in-out ${
                         openFaqIndex === index ? 'max-h-40 border-t-2 border-black' : 'max-h-0'
@@ -263,7 +264,7 @@ function App() {
                   <span className="text-stone-400 mt-4 block">Si lo puedes imaginar, lo podemos programar.</span>
                 </p>
                 
-                <a href="https://wa.me/524622350418" target="_blank" rel="noreferrer" className="mt-10 border-2 border-white text-white px-8 py-4 text-[10px] tracking-widest uppercase font-black hover:bg-white hover:text-black transition-colors duration-300">
+                <a href="https://wa.me/524622350418?text=Hola,%20me%20gustaría%20cotizar%20mi%20diseño%20de%20invitación" target="_blank" rel="noreferrer" className="mt-10 border-2 border-white text-white px-8 py-4 text-[10px] tracking-widest uppercase font-black hover:bg-white hover:text-black transition-colors duration-300">
                   Contactar Asesor
                 </a>
               </div>
