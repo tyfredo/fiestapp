@@ -5,7 +5,7 @@ import XVLayout from './layouts/XVLayout';
 import KidsLayout from './layouts/KidsLayout';
 import ScrollToTop from './components/ScrollToTop';
 
-// --- DATOS DE PREGUNTAS FRECUENTES (ACTUALIZADO CON MODALIDAD VIP) ---
+// --- DATOS DE PREGUNTAS FRECUENTES ---
 const faqData = [
   {
     question: "¿Mis invitados necesitan descargar alguna app?",
@@ -251,7 +251,7 @@ function App() {
               </div>
             </section>
 
-            {/* --- SECCIÓN 4: CONTACTO --- */}
+            {/* --- SECCIÓN 4: CONTACTO (ACTUALIZADO CON CORREO) --- */}
             <section id="contacto" className="w-full max-w-6xl mx-auto px-6 pb-24 scroll-mt-24 animate-fiestapp-entry">
               <div className="bg-black text-white py-16 px-8 md:px-20 text-center flex flex-col items-center shadow-2xl">
                 <h3 className="text-2xl md:text-4xl uppercase tracking-[0.3em] font-black mb-6">
@@ -267,13 +267,23 @@ function App() {
                 <a href="https://wa.me/524622350418?text=Hola,%20me%20gustaría%20cotizar%20mi%20diseño%20de%20invitación" target="_blank" rel="noreferrer" className="mt-10 border-2 border-white text-white px-8 py-4 text-[10px] tracking-widest uppercase font-black hover:bg-white hover:text-black transition-colors duration-300">
                   Contactar Asesor
                 </a>
+
+                {/* NUEVO CORREO CORPORATIVO */}
+                <p className="mt-8 text-stone-400 text-[10px] md:text-xs tracking-widest uppercase font-bold">
+                  o escríbenos a <br className="md:hidden" />
+                  <a href="mailto:contacto@fiestapp.com.mx" className="text-white hover:text-stone-300 transition-colors ml-0 md:ml-2">contacto@fiestapp.com.mx</a>
+                </p>
               </div>
             </section>
 
             {/* --- FOOTER --- */}
             <footer className="pb-12 text-center px-4">
-              <p className="text-black text-[9px] md:text-[10px] tracking-[0.4em] md:tracking-[0.8em] uppercase font-black">
+              <p className="text-black text-[9px] md:text-[10px] tracking-[0.4em] md:tracking-[0.8em] uppercase font-black mb-4">
                 Pure Design for Memorable Events
+              </p>
+              <div className="w-8 h-[1px] bg-stone-300 mx-auto mb-4"></div>
+              <p className="text-stone-500 text-[8px] md:text-[9px] tracking-[0.2em] uppercase font-bold">
+                &copy; {new Date().getFullYear()} Fiestapp Digital Studio. Todos los derechos reservados.
               </p>
             </footer>
 
