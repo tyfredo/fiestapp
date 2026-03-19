@@ -71,7 +71,7 @@ function App() {
               }`}
             >
               <div className="text-black text-[10px] tracking-[0.4em] uppercase font-black">
-                Est. 2026
+                - fiestapp -
               </div>
               <div className="flex flex-wrap justify-center gap-6 md:gap-10">
                 <a href="#inicio" className="text-black text-[10px] tracking-[0.3em] uppercase font-black hover:opacity-50 transition-opacity">Inicio</a>
