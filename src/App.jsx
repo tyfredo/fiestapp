@@ -5,6 +5,7 @@ import XVLayout from './layouts/XVLayout';
 import KidsLayout from './layouts/KidsLayout';
 import ScrollToTop from './components/ScrollToTop';
 import logoFiestapp from './assets/logo.png';
+import RenataXVLayout from './layouts/RenataXVLayout';
 
 // --- DATOS DE PREGUNTAS FRECUENTES ---
 const faqData = [
@@ -333,6 +334,7 @@ function App() {
         <Route path="/boda-elegante-demo" element={<BodaLayout />} />
         <Route path="/xv-glamour-demo" element={<XVLayout />} />
         <Route path="/bautizo-infantil-demo" element={<KidsLayout />} />
+        <Route path="/xv-renata" element={<RenataXVLayout />} />
       </Routes>
     </Router>
   );
