@@ -8,8 +8,6 @@ import floresArriba from '../assets/flor-arriba.png';
 import floresAbajo from '../assets/flor-abajo.png';
 import fondoPapel from '../assets/textura-papel.jpg'; 
 import selloCera from '../assets/sello-cera.png'; 
-
-// AGREGA AQUÍ TU LOGO DE FIESTAPP (ej: 'logo-fiestapp.png')
 import logoFiestapp from '../assets/logo.png'; 
 
 // --- COMPONENTE DE ANIMACIÓN AL HACER SCROLL ---
@@ -47,7 +45,7 @@ const RenataXVLayout = () => {
   const [isEnvelopeOpen, setIsEnvelopeOpen] = useState(false);
   const [hideEnvelope, setHideEnvelope] = useState(false);
   
-  const fechaEvento = "2026-07-18T13:00:00"; // 18 de Julio 2026
+  const fechaEvento = "2026-07-18T13:00:00"; 
 
   const handleOpenEnvelope = () => {
     setIsEnvelopeOpen(true);
@@ -78,7 +76,6 @@ const RenataXVLayout = () => {
           
           <div className="relative z-10 flex flex-col items-center group">
             
-            {}
             <div className={`w-32 h-32 flex items-center justify-center mb-6 transition-all duration-700 ${
               isEnvelopeOpen ? 'scale-150 opacity-0' : 'group-hover:scale-110'
             }`}>
@@ -246,11 +243,8 @@ const RenataXVLayout = () => {
               <h4 className="text-3xl text-botanical-berry mb-6 italic">Recepción</h4>
               <p className="text-stone-700 mb-2 font-bold uppercase tracking-widest">14:30 HRS</p>
               <p className="text-stone-600 mb-8 text-sm leading-relaxed">
-                Jardín Alvori
-                <br />
-                Arq. Enrique del moral Domínguez, 36826 
-                <br />
-                Irapuato, Gto.
+                Jardín Alvori <br />
+                Arq. Enrique del moral Domínguez, 36826 <br /> Irapuato, Gto.
               </p>
             </div>
             <MapButton 
@@ -280,20 +274,18 @@ const RenataXVLayout = () => {
 
       {/* =========================================
           7. FOOTER DE MARCA (FIESTAPP SIGNATURE)
-          Aparece al final absoluto de la página
+          Cambiamos a pt-12 y pb-32 para dar espacio al botón
           ========================================= */}
-      <footer className="w-full py-12 mt-12 bg-[#F9F6F0] border-t border-botanical-grass/10 z-10 relative">
+      <footer className="w-full pt-12 pb-32 mt-12 bg-[#F9F6F0] border-t border-botanical-grass/10 z-10 relative">
         <a href="/" target="_self" className="flex flex-col items-center justify-center group">
           
-          {/* Logo Fiestapp (subtle) */}
           <img 
             src={logoFiestapp} 
             alt="Fiestapp Logo" 
             className="h-6 mb-4 opacity-50 hover:opacity-100 transition-opacity duration-300 group-hover:scale-105" 
           />
 
-          {/* Tagline de Negocio */}
-          <p className="text-[10px] md:text-xs text-botanical-thicket font-serif tracking-[0.4em] uppercase font-bold group-hover:text-botanical-berry transition-colors">
+          <p className="text-[10px] md:text-xs text-botanical-thicket font-serif tracking-[0.4em] uppercase font-bold group-hover:text-botanical-berry transition-colors text-center px-4">
             Crea tu propia invitación inolvidable
           </p>
           <p className="text-[9px] text-stone-400 mt-1">
