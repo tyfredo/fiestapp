@@ -3,11 +3,14 @@ import Countdown from '../components/Countdown';
 import RSVPButton from '../components/RSVPButton';
 import MapButton from '../components/MapButton';
 
+// Asegúrate de que los nombres de estas imágenes coincidan con los tuyos
 import floresArriba from '../assets/flor-arriba.png'; 
 import floresAbajo from '../assets/flor-abajo.png';
 import fondoPapel from '../assets/textura-papel.jpg'; 
-// AQUÍ IMPORTAMOS TU SELLO DE CERA
 import selloCera from '../assets/sello-cera.png'; 
+
+// AGREGA AQUÍ TU LOGO DE FIESTAPP (ej: 'logo-fiestapp.png')
+import logoFiestapp from '../assets/logo.png'; 
 
 // --- COMPONENTE DE ANIMACIÓN AL HACER SCROLL ---
 const FadeInSection = ({ children, delay = 0 }) => {
@@ -44,7 +47,7 @@ const RenataXVLayout = () => {
   const [isEnvelopeOpen, setIsEnvelopeOpen] = useState(false);
   const [hideEnvelope, setHideEnvelope] = useState(false);
   
-  const fechaEvento = "2026-07-18T13:00:00"; 
+  const fechaEvento = "2026-07-18T13:00:00"; // 18 de Julio 2026
 
   const handleOpenEnvelope = () => {
     setIsEnvelopeOpen(true);
@@ -75,14 +78,14 @@ const RenataXVLayout = () => {
           
           <div className="relative z-10 flex flex-col items-center group">
             
-            {/* AQUÍ ESTÁ TU SELLO DE CERA REAL */}
+            {}
             <div className={`w-32 h-32 flex items-center justify-center mb-6 transition-all duration-700 ${
               isEnvelopeOpen ? 'scale-150 opacity-0' : 'group-hover:scale-110'
             }`}>
               <img 
                 src={selloCera} 
                 alt="Sello de Cera" 
-                className="w-full h-full object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.4)]" 
+                className="w-full h-full object-contain" 
               />
             </div>
             
@@ -230,7 +233,7 @@ const RenataXVLayout = () => {
               </p>
             </div>
             <MapButton 
-              location="https://www.google.com/maps/place/Rector%C3%ADa+del+Se%C3%B1or+de+la+Misericordia/@20.7046515,-101.426556,12z/data=!4m10!1m2!2m1!1stemplo+se%C3%B1or+de+la+misericordia!3m6!1s0x842c7f003949a37d:0xbbca445e8bb9bc8c!8m2!3d20.6994422!4d-101.3568002!15sCiB0ZW1wbG8gc2XDsW9yIGRlIGxhIG1pc2VyaWNvcmRpYVoiIiB0ZW1wbG8gc2XDsW9yIGRlIGxhIG1pc2VyaWNvcmRpYZIBBmNodXJjaJoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQyMUtiRlZxVmxOamEzY3pWa1JhYjFKVVRuVmlNMmhMVFRCb2Ixa3pZeEFC4AEA-gEECAAQEQ!16s%2Fg%2F11m6bsnxdm?entry=ttu&g_ep=EgoyMDI2MDQxNC4wIKXMDSoASAFQAw%3D%3D" 
+              location="https://maps.app.goo.gl/D6Pi5FV8ZopJvceLA" 
               label="Ver Ubicación" 
               className="bg-botanical-sky hover:bg-botanical-berry transition-colors duration-500 text-white px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold mx-auto" 
             />
@@ -244,10 +247,14 @@ const RenataXVLayout = () => {
               <p className="text-stone-700 mb-2 font-bold uppercase tracking-widest">14:30 HRS</p>
               <p className="text-stone-600 mb-8 text-sm leading-relaxed">
                 Jardín Alvori
+                <br />
+                Arq. Enrique del moral Domínguez, 36826 
+                <br />
+                Irapuato, Gto.
               </p>
             </div>
             <MapButton 
-              location="https://www.google.com/maps/place/Jard%C3%ADn+Alvori+-+Sal%C3%B3n+De+Eventos/@20.719638,-101.3457125,17z/data=!3m1!4b1!4m6!3m5!1s0x842b8001bd83b961:0x3d47e442d7306d10!8m2!3d20.719633!4d-101.3431376!16s%2Fg%2F11b6mq5mc3?entry=ttu&g_ep=EgoyMDI2MDQxNC4wIKXMDSoASAFQAw%3D%3D" 
+              location="https://maps.app.goo.gl/oo4GBxFxJZynPByP9" 
               label="Ver Ubicación" 
               className="bg-botanical-sky hover:bg-botanical-berry transition-colors duration-500 text-white px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold mx-auto" 
             />
@@ -270,6 +277,31 @@ const RenataXVLayout = () => {
           </p>
         </FadeInSection>
       </section>
+
+      {/* =========================================
+          7. FOOTER DE MARCA (FIESTAPP SIGNATURE)
+          Aparece al final absoluto de la página
+          ========================================= */}
+      <footer className="w-full py-12 mt-12 bg-[#F9F6F0] border-t border-botanical-grass/10 z-10 relative">
+        <a href="/" target="_self" className="flex flex-col items-center justify-center group">
+          
+          {/* Logo Fiestapp (subtle) */}
+          <img 
+            src={logoFiestapp} 
+            alt="Fiestapp Logo" 
+            className="h-6 mb-4 opacity-50 hover:opacity-100 transition-opacity duration-300 group-hover:scale-105" 
+          />
+
+          {/* Tagline de Negocio */}
+          <p className="text-[10px] md:text-xs text-botanical-thicket font-serif tracking-[0.4em] uppercase font-bold group-hover:text-botanical-berry transition-colors">
+            Crea tu propia invitación inolvidable
+          </p>
+          <p className="text-[9px] text-stone-400 mt-1">
+            Hecho con ❤️ por Fiestapp©
+          </p>
+          
+        </a>
+      </footer>
 
       {/* BOTÓN FLOTANTE RSVP */}
       <div className="fixed bottom-8 right-8 z-50">
