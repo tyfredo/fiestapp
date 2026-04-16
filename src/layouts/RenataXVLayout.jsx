@@ -8,7 +8,6 @@ import floresAbajo from '../assets/flor-abajo.png';
 import fondoPapel from '../assets/textura-papel.jpg'; 
 
 // --- COMPONENTE DE ANIMACIÓN AL HACER SCROLL ---
-// Esto hace que cada sección aparezca suavemente cuando el usuario baja
 const FadeInSection = ({ children, delay = 0 }) => {
   const [isVisible, setVisible] = useState(false);
   const domRef = useRef();
@@ -88,42 +87,31 @@ const RenataXVLayout = () => {
           className="anim-flower-bottom absolute bottom-0 left-1/2 w-[120%] md:w-full max-w-2xl z-10 pointer-events-none" 
         />
 
-        {/* TEXTO CENTRAL ANIMADO */}
-        <div className="anim-text-center relative z-20 w-full max-w-2xl flex flex-col items-center text-center mt-12 md:mt-0 drop-shadow-sm">
+        {/* TEXTO CENTRAL ANIMADO (Ajustado para no chocar con las flores) */}
+        <div className="anim-text-center relative z-20 w-full max-w-2xl flex flex-col items-center text-center drop-shadow-sm -mt-8 md:mt-0">
           
-          <p className="text-botanical-thicket tracking-[0.4em] uppercase text-sm md:text-base font-bold mb-4 md:mb-6">
+          <p className="text-botanical-thicket tracking-[0.4em] uppercase text-sm md:text-base font-bold mb-2">
             Mis XV Años
           </p>
 
-          <h1 className="text-[120px] md:text-[160px] leading-none mb-10 text-botanical-berry font-script drop-shadow-sm">
+          {/* Margen inferior reducido de mb-10 a mb-2 para subir la fecha */}
+          <h1 className="text-[120px] md:text-[160px] leading-none mb-2 text-botanical-berry font-script drop-shadow-sm">
             Renata
           </h1>
           
-          {/* NUEVO ACOMODO DE FECHA (CON COLORES DIFERENTES Y LÍNEAS HORIZONTALES) */}
           <div className="flex flex-col items-center">
-            
             <div className="flex items-center justify-center space-x-4 md:space-x-8">
-              {/* Día */}
               <p className="text-[10px] md:text-xs tracking-[0.4em] uppercase font-bold text-botanical-thicket">Sábado</p>
-              
-              {/* Línea horizontal */}
               <div className="h-[1px] w-8 md:w-16 bg-botanical-grass"></div>
-              
-              {/* Número oscuro y elegante */}
               <p className="text-5xl md:text-7xl font-serif text-stone-800 font-light">18</p>
-              
-              {/* Línea horizontal */}
               <div className="h-[1px] w-8 md:w-16 bg-botanical-grass"></div>
-              
-              {/* Mes */}
               <p className="text-[10px] md:text-xs tracking-[0.4em] uppercase font-bold text-botanical-thicket">Julio</p>
             </div>
 
-            {/* Año */}
-            <p className="text-stone-500 tracking-[0.5em] mt-6 text-sm md:text-base font-light">
+            {/* Margen superior reducido de mt-6 a mt-3 para subir el año */}
+            <p className="text-stone-500 tracking-[0.5em] mt-3 text-sm md:text-base font-light">
               2026
             </p>
-
           </div>
         </div>
       </section>
@@ -158,40 +146,93 @@ const RenataXVLayout = () => {
         </FadeInSection>
       </section>
 
-      {/* 4. LOCACIONES Y DETALLES */}
+      {/* 4. ITINERARIO */}
+      <section className="py-24 px-6 max-w-2xl mx-auto relative z-10">
+        <FadeInSection>
+          <h3 className="text-4xl text-botanical-berry mb-16 text-center italic font-light">Itinerario</h3>
+          
+          <div className="space-y-10 border-l border-botanical-grass ml-4 md:mx-auto md:w-fit md:pr-12">
+            
+            <div className="relative pl-8">
+              <div className="absolute -left-[7px] top-1 w-3 h-3 bg-botanical-grass rounded-full"></div>
+              <p className="text-botanical-thicket font-bold tracking-widest text-sm mb-1">14:30 HRS</p>
+              <h4 className="text-2xl text-stone-800 mb-2">Recepción</h4>
+            </div>
+
+            <div className="relative pl-8">
+              <div className="absolute -left-[7px] top-1 w-3 h-3 bg-botanical-grass rounded-full"></div>
+              <p className="text-botanical-thicket font-bold tracking-widest text-sm mb-1">15:30 HRS</p>
+              <h4 className="text-2xl text-stone-800 mb-2">Comida</h4>
+            </div>
+
+            <div className="relative pl-8">
+              <div className="absolute -left-[7px] top-1 w-3 h-3 bg-botanical-grass rounded-full"></div>
+              <p className="text-botanical-thicket font-bold tracking-widest text-sm mb-1">17:30 HRS</p>
+              <h4 className="text-2xl text-stone-800 mb-2">Vals</h4>
+            </div>
+
+            <div className="relative pl-8">
+              <div className="absolute -left-[7px] top-1 w-3 h-3 bg-botanical-grass rounded-full"></div>
+              <p className="text-botanical-thicket font-bold tracking-widest text-sm mb-1">18:00 HRS</p>
+              <h4 className="text-2xl text-stone-800 mb-2">Música y Baile</h4>
+            </div>
+
+          </div>
+        </FadeInSection>
+      </section>
+
+      {/* 5. LOCACIONES Y DETALLES */}
       <section className="py-24 px-6 max-w-5xl mx-auto grid md:grid-cols-2 gap-12 relative z-10">
         <FadeInSection delay={0}>
-          <div className="bg-white/60 p-12 rounded-sm shadow-lg text-center border border-white/80 h-full">
-            <h4 className="text-3xl text-botanical-berry mb-6 italic">Ceremonia</h4>
-            <p className="text-stone-700 mb-2 font-bold uppercase tracking-widest">13:00 HRS</p>
-            <p className="text-stone-600 mb-8 text-sm leading-relaxed">
-              Templo del Señor de la Misericordia<br/>
-              Prolongación Guerrero #3009<br/>
-              Fracc. Las Plazas
-            </p>
+          <div className="bg-white/60 p-12 rounded-sm shadow-lg text-center border border-white/80 h-full flex flex-col justify-between">
+            <div>
+              <h4 className="text-3xl text-botanical-berry mb-6 italic">Ceremonia</h4>
+              <p className="text-stone-700 mb-2 font-bold uppercase tracking-widest">13:00 HRS</p>
+              <p className="text-stone-600 mb-8 text-sm leading-relaxed">
+                Templo del Señor de la Misericordia<br/>
+                Prolongación Guerrero #3009<br/>
+                Fracc. Las Plazas
+              </p>
+            </div>
             <MapButton 
-              location="https://www.google.com/maps/place/Rector%C3%ADa+del+Se%C3%B1or+de+la+Misericordia/@20.7046515,-101.426556,12z/data=!4m10!1m2!2m1!1stemplo+se%C3%B1or+de+la+misericordia!3m6!1s0x842c7f003949a37d:0xbbca445e8bb9bc8c!8m2!3d20.6994422!4d-101.3568002!15sCiB0ZW1wbG8gc2XDsW9yIGRlIGxhIG1pc2VyaWNvcmRpYVoiIiB0ZW1wbG8gc2XDsW9yIGRlIGxhIG1pc2VyaWNvcmRpYZIBBmNodXJjaJoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQyMUtiRlZxVmxOamEzY3pWa1JhYjFKVVRuVmlNMmhMVFRCb2Ixa3pZeEFC4AEA-gEECAAQEQ!16s%2Fg%2F11m6bsnxdm?entry=ttu&g_ep=EgoyMDI2MDQxNC4wIKXMDSoASAFQAw%3D%3D" 
+              location="" 
               label="Ver Ubicación" 
-              className="bg-botanical-sky hover:bg-botanical-berry transition-colors duration-500 text-white px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold" 
+              className="bg-botanical-sky hover:bg-botanical-berry transition-colors duration-500 text-white px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold mx-auto" 
             />
           </div>
         </FadeInSection>
 
         <FadeInSection delay={200}>
-          <div className="bg-white/60 p-12 rounded-sm shadow-lg text-center border border-white/80 h-full">
-            <h4 className="text-3xl text-botanical-berry mb-6 italic">Recepción</h4>
-            <p className="text-stone-700 mb-2 font-bold uppercase tracking-widest">14:30 HRS</p>
-            <p className="text-stone-600 mb-8 text-sm leading-relaxed">
-              Jardín Alvori
-              Arq. Enrique del moral Domínguez,
-               36826 Irapuato, Gto.<br/>
-            </p>
+          <div className="bg-white/60 p-12 rounded-sm shadow-lg text-center border border-white/80 h-full flex flex-col justify-between">
+            <div>
+              <h4 className="text-3xl text-botanical-berry mb-6 italic">Recepción</h4>
+              <p className="text-stone-700 mb-2 font-bold uppercase tracking-widest">14:30 HRS</p>
+              <p className="text-stone-600 mb-8 text-sm leading-relaxed">
+                Jardín Alvori
+              </p>
+            </div>
             <MapButton 
-              location="https://www.google.com/maps/place/Jard%C3%ADn+Alvori+-+Sal%C3%B3n+De+Eventos/@20.719638,-101.3457125,17z/data=!3m1!4b1!4m6!3m5!1s0x842b8001bd83b961:0x3d47e442d7306d10!8m2!3d20.719633!4d-101.3431376!16s%2Fg%2F11b6mq5mc3?entry=ttu&g_ep=EgoyMDI2MDQxNC4wIKXMDSoASAFQAw%3D%3D" 
-              label="VER UBICACIÓN" 
-              className="bg-stone-300 text-white px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold cursor-not-allowed" 
+              location="" 
+              label="Ver Ubicación" 
+              className="bg-botanical-sky hover:bg-botanical-berry transition-colors duration-500 text-white px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold mx-auto" 
             />
           </div>
+        </FadeInSection>
+      </section>
+
+      {/* 6. CÓDIGO DE VESTIMENTA Y CONFIRMACIÓN */}
+      <section className="py-24 px-6 text-center bg-botanical-grass/10 border-y border-botanical-grass/20 relative z-10">
+        <FadeInSection>
+          <h3 className="text-3xl text-botanical-berry mb-4 italic font-light">Código de Vestimenta</h3>
+          <p className="text-xl text-stone-800 mb-12 tracking-widest uppercase font-bold">Elegant Sport</p>
+
+          <div className="w-16 h-[1px] bg-botanical-grass mx-auto mb-12"></div>
+
+          <h3 className="text-2xl text-botanical-sky mb-4 italic font-light">Confirmación de Asistencia</h3>
+          <p className="text-stone-600 mb-6 font-serif">
+            Favor de confirmar asistencia antes del<br/>
+            <span className="font-bold text-stone-800 text-lg">8 de Julio</span>
+          </p>
         </FadeInSection>
       </section>
 
