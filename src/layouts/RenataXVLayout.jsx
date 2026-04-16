@@ -6,6 +6,8 @@ import MapButton from '../components/MapButton';
 import floresArriba from '../assets/flor-arriba.png'; 
 import floresAbajo from '../assets/flor-abajo.png';
 import fondoPapel from '../assets/textura-papel.jpg'; 
+// AQUÍ IMPORTAMOS TU SELLO DE CERA
+import selloCera from '../assets/sello-cera.png'; 
 
 // --- COMPONENTE DE ANIMACIÓN AL HACER SCROLL ---
 const FadeInSection = ({ children, delay = 0 }) => {
@@ -39,62 +41,96 @@ const FadeInSection = ({ children, delay = 0 }) => {
 };
 
 const RenataXVLayout = () => {
+  const [isEnvelopeOpen, setIsEnvelopeOpen] = useState(false);
+  const [hideEnvelope, setHideEnvelope] = useState(false);
+  
   const fechaEvento = "2026-07-18T13:00:00"; 
 
-  return (
-    <div className="min-h-screen text-stone-800 font-serif overflow-x-hidden relative">
-      
-      {/* ESTILOS DE ANIMACIÓN PARA LA PORTADA */}
-      <style>{`
-        @keyframes slideDownFlower {
-          0% { transform: translate(-50%, -80px); opacity: 0; }
-          100% { transform: translate(-50%, 0); opacity: 0.9; }
-        }
-        @keyframes slideUpFlower {
-          0% { transform: translate(-50%, 80px); opacity: 0; }
-          100% { transform: translate(-50%, 0); opacity: 0.9; }
-        }
-        @keyframes fadeInText {
-          0% { opacity: 0; transform: scale(0.95); }
-          100% { opacity: 1; transform: scale(1); }
-        }
-        .anim-flower-top { animation: slideDownFlower 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
-        .anim-flower-bottom { animation: slideUpFlower 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
-        .anim-text-center { animation: fadeInText 2s cubic-bezier(0.22, 1, 0.36, 1) 0.5s forwards; opacity: 0; }
-      `}</style>
+  const handleOpenEnvelope = () => {
+    setIsEnvelopeOpen(true);
+    setTimeout(() => {
+      setHideEnvelope(true);
+    }, 1500); 
+  };
 
-      {/* 1. PORTADA */}
+  return (
+    <div className="min-h-screen text-stone-800 font-serif overflow-x-hidden relative bg-[#F9F6F0]">
+      
+      {/* =========================================
+          EL SOBRE (TELÓN OPACO)
+          ========================================= */}
+      {!hideEnvelope && (
+        <div 
+          onClick={handleOpenEnvelope}
+          className={`fixed top-0 left-0 w-full h-[100dvh] z-[999] flex flex-col items-center justify-center bg-[#F9F6F0] cursor-pointer transition-transform duration-[1200ms] ease-in-out ${
+            isEnvelopeOpen ? '-translate-y-full' : 'translate-y-0'
+          }`}
+          style={{ 
+            backgroundImage: `url(${fondoPapel})`, 
+            backgroundSize: 'cover', 
+            backgroundPosition: 'center' 
+          }}
+        >
+          <div className="absolute inset-0 bg-stone-900/10"></div>
+          
+          <div className="relative z-10 flex flex-col items-center group">
+            
+            {/* AQUÍ ESTÁ TU SELLO DE CERA REAL */}
+            <div className={`w-32 h-32 flex items-center justify-center mb-6 transition-all duration-700 ${
+              isEnvelopeOpen ? 'scale-150 opacity-0' : 'group-hover:scale-110'
+            }`}>
+              <img 
+                src={selloCera} 
+                alt="Sello de Cera" 
+                className="w-full h-full object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.4)]" 
+              />
+            </div>
+            
+            <p className={`text-[#B9AF5F] tracking-[0.4em] uppercase text-xs font-bold animate-pulse transition-opacity duration-300 ${
+              isEnvelopeOpen ? 'opacity-0' : 'opacity-100'
+            }`}>
+              Toca para abrir
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* =========================================
+          1. PORTADA 
+          ========================================= */}
       <section className="relative min-h-screen flex items-center justify-center p-4 md:p-10 overflow-hidden">
         
-        {/* FONDO */}
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${fondoPapel})`, backgroundColor: '#F9F6F0' }}
+          style={{ backgroundImage: `url(${fondoPapel})` }}
         >
-          <div className="absolute inset-0 bg-botanical-parchment/60"></div>
+          <div className="absolute inset-0 bg-[#F9F6F0]/60"></div>
         </div>
 
-        {/* FLORES ANIMADAS */}
         <img 
           src={floresArriba} 
           alt="Flores superiores" 
-          className="anim-flower-top absolute top-0 left-1/2 w-[120%] md:w-full max-w-2xl z-10 pointer-events-none" 
+          className={`absolute top-0 left-1/2 -translate-x-1/2 w-[120%] md:w-full max-w-2xl z-10 pointer-events-none transition-all duration-[1500ms] ease-out ${
+            isEnvelopeOpen ? 'translate-y-0 opacity-90 delay-300' : '-translate-y-24 opacity-0'
+          }`} 
         />
         
         <img 
           src={floresAbajo} 
           alt="Flores inferiores" 
-          className="anim-flower-bottom absolute bottom-0 left-1/2 w-[120%] md:w-full max-w-2xl z-10 pointer-events-none" 
+          className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[120%] md:w-full max-w-2xl z-10 pointer-events-none transition-all duration-[1500ms] ease-out ${
+            isEnvelopeOpen ? 'translate-y-0 opacity-90 delay-300' : 'translate-y-24 opacity-0'
+          }`} 
         />
 
-        {/* TEXTO CENTRAL ANIMADO (Ajustado para no chocar con las flores) */}
-        <div className="anim-text-center relative z-20 w-full max-w-2xl flex flex-col items-center text-center drop-shadow-sm -mt-8 md:mt-0">
-          
+        <div className={`relative z-20 w-full max-w-2xl flex flex-col items-center text-center drop-shadow-sm -mt-8 md:mt-0 transition-all duration-[1500ms] ease-out ${
+            isEnvelopeOpen ? 'opacity-100 scale-100 delay-700' : 'opacity-0 scale-90'
+          }`}
+        >
           <p className="text-botanical-thicket tracking-[0.4em] uppercase text-sm md:text-base font-bold mb-2">
             Mis XV Años
           </p>
 
-          {/* Margen inferior reducido de mb-10 a mb-2 para subir la fecha */}
           <h1 className="text-[120px] md:text-[160px] leading-none mb-2 text-botanical-berry font-script drop-shadow-sm">
             Renata
           </h1>
@@ -108,7 +144,6 @@ const RenataXVLayout = () => {
               <p className="text-[10px] md:text-xs tracking-[0.4em] uppercase font-bold text-botanical-thicket">Julio</p>
             </div>
 
-            {/* Margen superior reducido de mt-6 a mt-3 para subir el año */}
             <p className="text-stone-500 tracking-[0.5em] mt-3 text-sm md:text-base font-light">
               2026
             </p>
@@ -195,7 +230,7 @@ const RenataXVLayout = () => {
               </p>
             </div>
             <MapButton 
-              location="" 
+              location="https://www.google.com/maps/place/Rector%C3%ADa+del+Se%C3%B1or+de+la+Misericordia/@20.7046515,-101.426556,12z/data=!4m10!1m2!2m1!1stemplo+se%C3%B1or+de+la+misericordia!3m6!1s0x842c7f003949a37d:0xbbca445e8bb9bc8c!8m2!3d20.6994422!4d-101.3568002!15sCiB0ZW1wbG8gc2XDsW9yIGRlIGxhIG1pc2VyaWNvcmRpYVoiIiB0ZW1wbG8gc2XDsW9yIGRlIGxhIG1pc2VyaWNvcmRpYZIBBmNodXJjaJoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQyMUtiRlZxVmxOamEzY3pWa1JhYjFKVVRuVmlNMmhMVFRCb2Ixa3pZeEFC4AEA-gEECAAQEQ!16s%2Fg%2F11m6bsnxdm?entry=ttu&g_ep=EgoyMDI2MDQxNC4wIKXMDSoASAFQAw%3D%3D" 
               label="Ver Ubicación" 
               className="bg-botanical-sky hover:bg-botanical-berry transition-colors duration-500 text-white px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold mx-auto" 
             />
@@ -212,7 +247,7 @@ const RenataXVLayout = () => {
               </p>
             </div>
             <MapButton 
-              location="" 
+              location="https://www.google.com/maps/place/Jard%C3%ADn+Alvori+-+Sal%C3%B3n+De+Eventos/@20.719638,-101.3457125,17z/data=!3m1!4b1!4m6!3m5!1s0x842b8001bd83b961:0x3d47e442d7306d10!8m2!3d20.719633!4d-101.3431376!16s%2Fg%2F11b6mq5mc3?entry=ttu&g_ep=EgoyMDI2MDQxNC4wIKXMDSoASAFQAw%3D%3D" 
               label="Ver Ubicación" 
               className="bg-botanical-sky hover:bg-botanical-berry transition-colors duration-500 text-white px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold mx-auto" 
             />
