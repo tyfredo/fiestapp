@@ -9,7 +9,6 @@ import floresAbajo from '../assets/flor-abajo.png';
 import fondoPapel from '../assets/textura-papel.png'; 
 import selloCera from '../assets/sello-cera.png'; 
 import logoFiestapp from '../assets/logo.png'; 
-import enredadera from '../assets/enredadera.png'; // NUEVA IMAGEN
 
 // --- COMPONENTE DE ANIMACIÓN AL HACER SCROLL ---
 const FadeInSection = ({ children, delay = 0 }) => {
@@ -154,34 +153,23 @@ const RenataXVLayout = () => {
       </section>
 
       {/* 2. SECCIÓN DE PADRES Y PADRINOS */}
-      <section className="pt-36 pb-24 px-6 text-center max-w-4xl mx-auto relative z-10">
-        
-        {/* ENREDADERA CAYENDO DESDE EL CORTE SUPERIOR */}
-        <img 
-          src={enredadera} 
-          alt="Enredadera decorativa" 
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-full md:w-[120%] max-w-4xl opacity-95 pointer-events-none z-0" 
-        />
+      <section className="py-24 px-6 text-center max-w-4xl mx-auto relative z-10">
+        <FadeInSection>
+          <h3 className="text-3xl text-botanical-berry mb-12 italic font-light">En compañía de mis padres</h3>
+          <div className="space-y-2 text-xl text-stone-700 font-serif">
+            <p>Francisco Hernández</p>
+            <p>Mayela Ornelas</p>
+          </div>
 
-        {/* Contenido principal (con z-10 para asegurar que el texto se lea si la enredadera cae sobre él) */}
-        <div className="relative z-10">
-          <FadeInSection>
-            <h3 className="text-3xl text-botanical-berry mb-12 italic font-light">En compañía de mis padres</h3>
-            <div className="space-y-2 text-xl text-stone-700 font-serif">
-              <p>Francisco Hernández</p>
-              <p>Mayela Ornelas</p>
-            </div>
+          <div className="my-16 flex justify-center">
+            <div className="w-1 h-1 bg-botanical-grass rounded-full mx-1"></div>
+            <div className="w-1 h-1 bg-botanical-grass rounded-full mx-1"></div>
+            <div className="w-1 h-1 bg-botanical-grass rounded-full mx-1"></div>
+          </div>
 
-            <div className="my-16 flex justify-center">
-              <div className="w-1 h-1 bg-botanical-grass rounded-full mx-1"></div>
-              <div className="w-1 h-1 bg-botanical-grass rounded-full mx-1"></div>
-              <div className="w-1 h-1 bg-botanical-grass rounded-full mx-1"></div>
-            </div>
-
-            <h3 className="text-2xl text-botanical-sky mb-8 italic font-light">Y mis padrinos</h3>
-            <p className="text-lg text-stone-600 font-serif">Arturo Ornelas y Susana Ornelas</p>
-          </FadeInSection>
-        </div>
+          <h3 className="text-2xl text-botanical-sky mb-8 italic font-light">Y mis padrinos</h3>
+          <p className="text-lg text-stone-600 font-serif">Arturo Ornelas y Susana Ornelas</p>
+        </FadeInSection>
       </section>
 
       {/* 3. CUENTA REGRESIVA */}
@@ -208,7 +196,7 @@ const RenataXVLayout = () => {
             </div>
 
             <div className="relative pl-8">
-              <div className="absolute -left-[7px] top-1 w-3 h-3 bg-botanical-grass rounded-full"></div>
+              <div className="absolute -left-[7px] top-1 w-3 h-3 bg-botanrasrounded-full"></div>
               <p className="text-botanical-thicket font-bold tracking-widest text-sm mb-1">15:30 HRS</p>
               <h4 className="text-2xl text-stone-800 mb-2">Comida</h4>
             </div>
