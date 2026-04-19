@@ -97,7 +97,8 @@ const RenataXVLayout = () => {
       {/* =========================================
           1. PORTADA CON NUEVAS FLORES FINE ART
           ========================================= */}
-      <section className="relative min-h-screen flex items-center justify-center p-4 md:p-10 overflow-hidden">
+      {/* CAMBIO AQUÍ: min-h-[80dvh] para móvil, md:min-h-screen para PC */}
+      <section className="relative min-h-[80dvh] md:min-h-screen flex items-center justify-center p-4 md:p-10 overflow-hidden">
         
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center"
@@ -107,19 +108,21 @@ const RenataXVLayout = () => {
         </div>
 
         {/* NUEVAS FLORES SUPERIORES - Centradas y enmarcando */}
+        {/* CAMBIO AQUÍ: w-[130%] en móvil para que llenen mejor el espacio */}
         <img 
           src={floresArriba} 
           alt="Flores superiores Fine Art" 
-          className={`absolute top-0 left-1/2 -translate-x-1/2 w-[110%] md:w-full max-w-3xl z-10 pointer-events-none transition-all duration-[1500ms] ease-out ${
+          className={`absolute top-0 left-1/2 -translate-x-1/2 w-[130%] md:w-full max-w-3xl z-10 pointer-events-none transition-all duration-[1500ms] ease-out ${
             isEnvelopeOpen ? 'translate-y-0 opacity-100 delay-300' : '-translate-y-24 opacity-0'
           }`} 
         />
         
         {/* NUEVAS FLORES INFERIORES - Centradas y enmarcando */}
+        {/* CAMBIO AQUÍ: w-[130%] en móvil para que llenen mejor el espacio */}
         <img 
           src={floresAbajo} 
           alt="Flores inferiores Fine Art" 
-          className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[110%] md:w-full max-w-3xl z-10 pointer-events-none transition-all duration-[1500ms] ease-out ${
+          className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[130%] md:w-full max-w-3xl z-10 pointer-events-none transition-all duration-[1500ms] ease-out ${
             isEnvelopeOpen ? 'translate-y-0 opacity-100 delay-300' : 'translate-y-24 opacity-0'
           }`} 
         />
