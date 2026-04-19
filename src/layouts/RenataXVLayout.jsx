@@ -3,40 +3,45 @@ import Countdown from '../components/Countdown';
 import RSVPButton from '../components/RSVPButton';
 import MapButton from '../components/MapButton';
 
-// Asegúrate de que los nombres de estas imágenes coincidan con tus nuevos PNGs de Fine Art Floral
 import floresArriba from '../assets/flor-arriba.png'; 
 import floresAbajo from '../assets/flor-abajo.png';
 import fondoPapel from '../assets/textura-papel.png'; 
 import selloCera from '../assets/sello-cera.png'; 
 import logoFiestapp from '../assets/logo.png'; 
 
-// --- COMPONENTE DE ANIMACIÓN AL HACER SCROLL ---
+// --- COMPONENTE DE ANIMACIÓN REPARADO (Caja contenedora fija) ---
 const FadeInSection = ({ children, delay = 0 }) => {
   const [isVisible, setVisible] = useState(false);
   const domRef = useRef();
 
   useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.unobserve(domRef.current);
-        }
-      });
-    });
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          setVisible(entry.isIntersecting);
+        });
+      },
+      { threshold: 0.1 } 
+    );
+    
     if (domRef.current) observer.observe(domRef.current);
-    return () => { if (domRef.current) observer.unobserve(domRef.current) };
+    
+    return () => { 
+      if (domRef.current) observer.unobserve(domRef.current); 
+    };
   }, []);
 
   return (
-    <div
-      ref={domRef}
-      className={`transition-all duration-1000 ease-out ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
-      }`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
+    /* Contenedor fijo que evita el bug de salto en el scroll */
+    <div ref={domRef} className="w-full h-full">
+      <div
+        className={`w-full h-full transition-all duration-1000 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+        }`}
+        style={{ transitionDelay: `${isVisible ? delay : 0}ms` }}
+      >
+        {children}
+      </div>
     </div>
   );
 };
@@ -45,6 +50,9 @@ const RenataXVLayout = () => {
   const [isEnvelopeOpen, setIsEnvelopeOpen] = useState(false);
   const [hideEnvelope, setHideEnvelope] = useState(false);
   
+  // RASTREO DE SCROLL PARA LA PORTADA
+  const [scrollY, setScrollY] = useState(0);
+
   const fechaEvento = "2026-07-18T13:00:00"; // 18 de Julio 2026
 
   const handleOpenEnvelope = () => {
@@ -54,23 +62,17 @@ const RenataXVLayout = () => {
     }, 1500); 
   };
 
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    if (isEnvelopeOpen) {
+      window.addEventListener('scroll', handleScroll, { passive: true });
+    }
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isEnvelopeOpen]);
+
   return (
     <div className="min-h-screen text-stone-800 font-serif overflow-x-hidden relative bg-[#F9F6F0]">
       
-      {/* =========================================
-          NUEVAS ANIMACIONES: "ETHEREAL REVEAL"
-          ========================================= */}
-      <style>{`
-        @keyframes etherealReveal {
-          0% { opacity: 0; transform: translateY(30px) scale(0.95); filter: blur(10px); }
-          100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0px); }
-        }
-        @keyframes softFadeUp {
-          0% { opacity: 0; transform: translateY(15px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
-
       {/* =========================================
           EL SOBRE (TELÓN OPACO)
           ========================================= */}
@@ -109,11 +111,11 @@ const RenataXVLayout = () => {
       )}
 
       {/* =========================================
-          1. PORTADA 
-          Ajuste intermedio: min-h-[90dvh] y flores al 115%
+          1. PORTADA CON ANIMACIÓN DE SALIDA (PARALLAX)
           ========================================= */}
-      <section className="relative min-h-[90dvh] md:min-h-screen flex items-center justify-center p-4 md:p-10 overflow-hidden">
+      <section className="relative min-h-[90dvh] md:min-h-screen overflow-hidden">
         
+        {/* FONDO BASE FIJO */}
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${fondoPapel})` }}
@@ -121,66 +123,61 @@ const RenataXVLayout = () => {
           <div className="absolute inset-0 bg-[#F9F6F0]/60"></div>
         </div>
 
-        {/* FLORES SUPERIORES - Tamaño intermedio w-[115%] */}
-        <img 
-          src={floresArriba} 
-          alt="Flores superiores Fine Art" 
-          className={`absolute top-0 left-1/2 -translate-x-1/2 w-[115%] md:w-full max-w-3xl z-10 pointer-events-none transition-all duration-[1500ms] ease-out ${
-            isEnvelopeOpen ? 'translate-y-0 opacity-100 delay-300' : '-translate-y-24 opacity-0'
-          }`} 
-        />
-        
-        {/* FLORES INFERIORES - Tamaño intermedio w-[115%] */}
-        <img 
-          src={floresAbajo} 
-          alt="Flores inferiores Fine Art" 
-          className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[115%] md:w-full max-w-3xl z-10 pointer-events-none transition-all duration-[1500ms] ease-out ${
-            isEnvelopeOpen ? 'translate-y-0 opacity-100 delay-300' : 'translate-y-24 opacity-0'
-          }`} 
-        />
-
-        <div className={`relative z-20 w-full max-w-2xl flex flex-col items-center text-center drop-shadow-sm -mt-8 md:mt-0 transition-all duration-[1500ms] ease-out ${
-            isEnvelopeOpen ? 'opacity-100 scale-100 delay-500' : 'opacity-0 scale-90'
-          }`}
+        {/* ENVOLTORIO ANIMADO PARA LA SALIDA */}
+        <div 
+          className="absolute inset-0 flex items-center justify-center p-4 md:p-10"
+          style={{
+            transform: `translateY(${scrollY * 0.35}px)`,
+            opacity: Math.max(1 - scrollY / 400, 0), 
+          }}
         >
-          <p className="text-botanical-thicket tracking-[0.4em] uppercase text-sm md:text-base font-bold mb-2">
-            Mis XV Años
-          </p>
-
-          {/* NOMBRE CON EFECTO ETHEREAL REVEAL */}
-          <h1 
-            className="text-[120px] md:text-[160px] leading-none mb-2 text-botanical-berry font-script drop-shadow-sm opacity-0"
-            style={{
-              animation: isEnvelopeOpen ? 'etherealReveal 2.8s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards' : 'none'
-            }}
-          >
-            Renata
-          </h1>
+          <img 
+            src={floresArriba} 
+            alt="Flores superiores" 
+            className={`absolute top-0 left-1/2 -translate-x-1/2 w-[115%] md:w-full max-w-3xl z-10 pointer-events-none transition-all duration-[1500ms] ease-out ${
+              isEnvelopeOpen ? 'translate-y-0 opacity-100 delay-300' : '-translate-y-24 opacity-0'
+            }`} 
+          />
           
-          {/* FECHA CON EFECTO DE FADE UP SUAVE (Aparece justo después del nombre) */}
-          <div 
-            className="flex flex-col items-center opacity-0"
-            style={{
-              animation: isEnvelopeOpen ? 'softFadeUp 2s cubic-bezier(0.22, 1, 0.36, 1) 1.5s forwards' : 'none'
-            }}
-          >
-            <div className="flex items-center justify-center space-x-4 md:space-x-8">
-              <p className="text-[10px] md:text-xs tracking-[0.4em] uppercase font-bold text-botanical-thicket">Sábado</p>
-              <div className="h-[1px] w-8 md:w-16 bg-botanical-grass"></div>
-              <p className="text-5xl md:text-7xl font-serif text-stone-800 font-light">18</p>
-              <div className="h-[1px] w-8 md:w-16 bg-botanical-grass"></div>
-              <p className="text-[10px] md:text-xs tracking-[0.4em] uppercase font-bold text-botanical-thicket">Julio</p>
-            </div>
+          <img 
+            src={floresAbajo} 
+            alt="Flores inferiores" 
+            className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[115%] md:w-full max-w-3xl z-10 pointer-events-none transition-all duration-[1500ms] ease-out ${
+              isEnvelopeOpen ? 'translate-y-0 opacity-100 delay-300' : 'translate-y-24 opacity-0'
+            }`} 
+          />
 
-            <p className="text-stone-500 tracking-[0.5em] mt-3 text-sm md:text-base font-light">
-              2026
+          <div className={`relative z-20 w-full max-w-2xl flex flex-col items-center text-center drop-shadow-sm -mt-8 md:mt-0 transition-all duration-[1500ms] ease-out ${
+              isEnvelopeOpen ? 'opacity-100 scale-100 delay-700' : 'opacity-0 scale-90'
+            }`}
+          >
+            <p className="text-botanical-thicket tracking-[0.4em] uppercase text-sm md:text-base font-bold mb-2">
+              Mis XV Años
             </p>
+
+            <h1 className="text-[120px] md:text-[160px] leading-none mb-2 text-botanical-berry font-script drop-shadow-sm">
+              Renata
+            </h1>
+            
+            <div className="flex flex-col items-center">
+              <div className="flex items-center justify-center space-x-4 md:space-x-8">
+                <p className="text-[10px] md:text-xs tracking-[0.4em] uppercase font-bold text-botanical-thicket">Sábado</p>
+                <div className="h-[1px] w-8 md:w-16 bg-botanical-grass"></div>
+                <p className="text-5xl md:text-7xl font-serif text-stone-800 font-light">18</p>
+                <div className="h-[1px] w-8 md:w-16 bg-botanical-grass"></div>
+                <p className="text-[10px] md:text-xs tracking-[0.4em] uppercase font-bold text-botanical-thicket">Julio</p>
+              </div>
+
+              <p className="text-stone-500 tracking-[0.5em] mt-3 text-sm md:text-base font-light">
+                2026
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* 2. SECCIÓN DE PADRES Y PADRINOS */}
-      <section className="py-24 px-6 text-center max-w-4xl mx-auto relative z-10">
+      <section className="py-24 px-6 text-center max-w-4xl mx-auto relative z-10 bg-transparent">
         <FadeInSection>
           <h3 className="text-3xl text-botanical-berry mb-12 italic font-light">En compañía de mis padres</h3>
           <div className="space-y-2 text-xl text-stone-700 font-serif">
@@ -210,7 +207,7 @@ const RenataXVLayout = () => {
       </section>
 
       {/* 4. ITINERARIO */}
-      <section className="py-24 px-6 max-w-2xl mx-auto relative z-10">
+      <section className="py-24 px-6 max-w-2xl mx-auto relative z-10 bg-transparent">
         <FadeInSection>
           <h3 className="text-4xl text-botanical-berry mb-16 text-center italic font-light">Itinerario</h3>
           
@@ -223,7 +220,7 @@ const RenataXVLayout = () => {
             </div>
 
             <div className="relative pl-8">
-              <div className="absolute -left-[7px] top-1 w-3 h-3 bg-botanrasrounded-full"></div>
+              <div className="absolute -left-[7px] top-1 w-3 h-3 bg-botanical-grass rounded-full"></div>
               <p className="text-botanical-thicket font-bold tracking-widest text-sm mb-1">15:30 HRS</p>
               <h4 className="text-2xl text-stone-800 mb-2">Comida</h4>
             </div>
@@ -245,7 +242,7 @@ const RenataXVLayout = () => {
       </section>
 
       {/* 5. LOCACIONES Y DETALLES */}
-      <section className="py-24 px-6 max-w-5xl mx-auto grid md:grid-cols-2 gap-12 relative z-10">
+      <section className="py-24 px-6 max-w-5xl mx-auto grid md:grid-cols-2 gap-12 relative z-10 bg-transparent">
         <FadeInSection delay={0}>
           <div className="bg-white/60 p-12 rounded-sm shadow-lg text-center border border-white/80 h-full flex flex-col justify-between">
             <div>
