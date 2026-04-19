@@ -9,6 +9,25 @@ import fondoPapel from '../assets/textura-papel.png';
 import selloCera from '../assets/sello-cera.png'; 
 import logoFiestapp from '../assets/logo.png'; 
 
+// IMPORTAMOS SOLO LAS MAGNOLIAS DE LAS ESQUINAS
+import man3 from '../assets/man3.png'; 
+import man6 from '../assets/man6.png'; 
+
+// IMPORTAMOS LOS ICONOS DEL ITINERARIO
+import sakIcon from '../assets/sak-icon.png';
+import iglesiaIcon from '../assets/iglesia-icon.png';
+import recepcionIcon from '../assets/recepcion-icon.png';
+import comidaIcon from '../assets/comida-icon.png';
+import valsIcon from '../assets/vals-icon.png';
+import musicaIcon from '../assets/musica-icon.png';
+
+// IMPORTAMOS LOS ICONOS PARA LAS TARJETAS DE LOCACIÓN
+import iglesiaCardIcon from '../assets/iglesia-icon-card.png';
+import recepcionCardIcon from '../assets/recepcion-icon-card.png';
+
+// IMPORTAMOS EL ICONO PARA EL CÓDIGO DE VESTIMENTA
+import dressCodeIcon from '../assets/dress-code-icon.png';
+
 // --- COMPONENTE DE ANIMACIÓN REPARADO (Caja contenedora fija) ---
 const FadeInSection = ({ children, delay = 0 }) => {
   const [isVisible, setVisible] = useState(false);
@@ -32,7 +51,6 @@ const FadeInSection = ({ children, delay = 0 }) => {
   }, []);
 
   return (
-    /* Contenedor fijo que evita el bug de salto en el scroll */
     <div ref={domRef} className="w-full h-full">
       <div
         className={`w-full h-full transition-all duration-1000 ease-out ${
@@ -50,10 +68,9 @@ const RenataXVLayout = () => {
   const [isEnvelopeOpen, setIsEnvelopeOpen] = useState(false);
   const [hideEnvelope, setHideEnvelope] = useState(false);
   
-  // RASTREO DE SCROLL PARA LA PORTADA
   const [scrollY, setScrollY] = useState(0);
 
-  const fechaEvento = "2026-07-18T13:00:00"; // 18 de Julio 2026
+  const fechaEvento = "2026-07-18T13:00:00"; 
 
   const handleOpenEnvelope = () => {
     setIsEnvelopeOpen(true);
@@ -111,11 +128,10 @@ const RenataXVLayout = () => {
       )}
 
       {/* =========================================
-          1. PORTADA CON ANIMACIÓN DE SALIDA (PARALLAX)
+          1. PORTADA CON ANIMACIÓN DE SALIDA
           ========================================= */}
       <section className="relative min-h-[90dvh] md:min-h-screen overflow-hidden">
         
-        {/* FONDO BASE FIJO */}
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${fondoPapel})` }}
@@ -123,7 +139,6 @@ const RenataXVLayout = () => {
           <div className="absolute inset-0 bg-[#F9F6F0]/60"></div>
         </div>
 
-        {/* ENVOLTORIO ANIMADO PARA LA SALIDA */}
         <div 
           className="absolute inset-0 flex items-center justify-center p-4 md:p-10"
           style={{
@@ -207,36 +222,81 @@ const RenataXVLayout = () => {
       </section>
 
       {/* 4. ITINERARIO */}
-      <section className="py-24 px-6 max-w-2xl mx-auto relative z-10 bg-transparent">
+      <section className="py-32 px-6 max-w-2xl mx-auto relative z-10 bg-transparent">
         <FadeInSection>
-          <h3 className="text-4xl text-botanical-berry mb-16 text-center italic font-light">Itinerario</h3>
+          <h3 className="text-5xl text-botanical-berry mb-16 text-center italic font-light drop-shadow-sm">Itinerario</h3>
           
-          <div className="space-y-10 border-l border-botanical-grass ml-4 md:mx-auto md:w-fit md:pr-12">
+          <div className="relative pt-4">
+            <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[1px] bg-botanical-berry/30"></div>
             
-            <div className="relative pl-8">
-              <div className="absolute -left-[7px] top-1 w-3 h-3 bg-botanical-grass rounded-full"></div>
-              <p className="text-botanical-thicket font-bold tracking-widest text-sm mb-1">14:30 HRS</p>
-              <h4 className="text-2xl text-stone-800 mb-2">Recepción</h4>
+            <div className="flex flex-col items-center mb-16 relative z-10 bg-[#F9F6F0] py-2">
+              <img src={sakIcon} alt="Sakura" className="w-12 md:w-16 mb-3 opacity-90" />
+              <p className="text-botanical-berry tracking-[0.2em] text-xs md:text-sm font-bold uppercase">El Gran Día</p>
             </div>
 
-            <div className="relative pl-8">
-              <div className="absolute -left-[7px] top-1 w-3 h-3 bg-botanical-grass rounded-full"></div>
-              <p className="text-botanical-thicket font-bold tracking-widest text-sm mb-1">15:30 HRS</p>
-              <h4 className="text-2xl text-stone-800 mb-2">Comida</h4>
-            </div>
+            <div className="space-y-16 md:space-y-24">
+              
+              {/* Evento 1: Ceremonia */}
+              <div className="relative flex items-center justify-between w-full">
+                <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full border border-botanical-berry bg-[#F9F6F0] z-10"></div>
+                <div className="w-1/2 pr-6 md:pr-10 text-right flex flex-col justify-center items-end">
+                  <p className="text-botanical-berry font-bold tracking-widest text-lg md:text-xl font-sans uppercase">13:00</p>
+                </div>
+                <div className="w-1/2 pl-6 md:pl-10 text-left flex flex-col items-start">
+                  <img src={iglesiaIcon} alt="Ceremonia" className="w-10 md:w-12 mb-3 opacity-80" />
+                  <h4 className="text-xl md:text-3xl text-stone-800 font-light italic">Ceremonia</h4>
+                </div>
+              </div>
 
-            <div className="relative pl-8">
-              <div className="absolute -left-[7px] top-1 w-3 h-3 bg-botanical-grass rounded-full"></div>
-              <p className="text-botanical-thicket font-bold tracking-widest text-sm mb-1">17:30 HRS</p>
-              <h4 className="text-2xl text-stone-800 mb-2">Vals</h4>
-            </div>
+              {/* Evento 2: Recepción */}
+              <div className="relative flex items-center justify-between w-full">
+                <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full border border-botanical-berry bg-[#F9F6F0] z-10"></div>
+                <div className="w-1/2 pr-6 md:pr-10 text-right flex flex-col items-end">
+                  <img src={recepcionIcon} alt="Recepción" className="w-10 md:w-12 mb-3 opacity-80" />
+                  <h4 className="text-xl md:text-3xl text-stone-800 font-light italic">Recepción</h4>
+                </div>
+                <div className="w-1/2 pl-6 md:pl-10 text-left flex flex-col justify-center items-start">
+                  <p className="text-botanical-berry font-bold tracking-widest text-lg md:text-xl font-sans uppercase">14:30</p>
+                </div>
+              </div>
 
-            <div className="relative pl-8">
-              <div className="absolute -left-[7px] top-1 w-3 h-3 bg-botanical-grass rounded-full"></div>
-              <p className="text-botanical-thicket font-bold tracking-widest text-sm mb-1">18:00 HRS</p>
-              <h4 className="text-2xl text-stone-800 mb-2">Música y Baile</h4>
-            </div>
+              {/* Evento 3: Comida */}
+              <div className="relative flex items-center justify-between w-full">
+                <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full border border-botanical-berry bg-[#F9F6F0] z-10"></div>
+                <div className="w-1/2 pr-6 md:pr-10 text-right flex flex-col justify-center items-end">
+                  <p className="text-botanical-berry font-bold tracking-widest text-lg md:text-xl font-sans uppercase">15:30</p>
+                </div>
+                <div className="w-1/2 pl-6 md:pl-10 text-left flex flex-col items-start">
+                  <img src={comidaIcon} alt="Comida" className="w-10 md:w-12 mb-3 opacity-80" />
+                  <h4 className="text-xl md:text-3xl text-stone-800 font-light italic">Comida</h4>
+                </div>
+              </div>
 
+              {/* Evento 4: Vals */}
+              <div className="relative flex items-center justify-between w-full">
+                <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full border border-botanical-berry bg-[#F9F6F0] z-10"></div>
+                <div className="w-1/2 pr-6 md:pr-10 text-right flex flex-col items-end">
+                  <img src={valsIcon} alt="Vals" className="w-10 md:w-12 mb-3 opacity-80" />
+                  <h4 className="text-xl md:text-3xl text-stone-800 font-light italic">Vals</h4>
+                </div>
+                <div className="w-1/2 pl-6 md:pl-10 text-left flex flex-col justify-center items-start">
+                  <p className="text-botanical-berry font-bold tracking-widest text-lg md:text-xl font-sans uppercase">17:30</p>
+                </div>
+              </div>
+
+              {/* Evento 5: Música y Baile */}
+              <div className="relative flex items-center justify-between w-full">
+                <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full border border-botanical-berry bg-[#F9F6F0] z-10"></div>
+                <div className="w-1/2 pr-6 md:pr-10 text-right flex flex-col justify-center items-end">
+                  <p className="text-botanical-berry font-bold tracking-widest text-lg md:text-xl font-sans uppercase">18:00</p>
+                </div>
+                <div className="w-1/2 pl-6 md:pl-10 text-left flex flex-col items-start">
+                  <img src={musicaIcon} alt="Música y Baile" className="w-10 md:w-12 mb-3 opacity-80" />
+                  <h4 className="text-xl md:text-3xl text-stone-800 font-light italic">Música<br/>y Baile</h4>
+                </div>
+              </div>
+
+            </div>
           </div>
         </FadeInSection>
       </section>
@@ -244,8 +304,10 @@ const RenataXVLayout = () => {
       {/* 5. LOCACIONES Y DETALLES */}
       <section className="py-24 px-6 max-w-5xl mx-auto grid md:grid-cols-2 gap-12 relative z-10 bg-transparent">
         <FadeInSection delay={0}>
-          <div className="bg-white/60 p-12 rounded-sm shadow-lg text-center border border-white/80 h-full flex flex-col justify-between">
-            <div>
+          <div className="bg-white/60 p-12 rounded-sm shadow-lg text-center border border-white/80 h-full flex flex-col justify-between relative overflow-hidden">
+            <img src={man3} alt="Decoración Magnolias" className="absolute top-0 right-0 w-24 md:w-32 opacity-60 pointer-events-none" />
+            <div className="relative z-10 flex flex-col items-center">
+              <img src={iglesiaCardIcon} alt="Icono Ceremonia" className="w-20 md:w-24 mb-6 opacity-80 mix-blend-multiply" />
               <h4 className="text-3xl text-botanical-berry mb-6 italic">Ceremonia</h4>
               <p className="text-stone-700 mb-2 font-bold uppercase tracking-widest">13:00 HRS</p>
               <p className="text-stone-600 mb-8 text-sm leading-relaxed">
@@ -254,28 +316,34 @@ const RenataXVLayout = () => {
                 Fracc. Las Plazas
               </p>
             </div>
-            <MapButton 
-              location="" 
-              label="Ver Ubicación" 
-              className="bg-botanical-sky hover:bg-botanical-berry transition-colors duration-500 text-white px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold mx-auto" 
-            />
+            <div className="relative z-10 mt-auto">
+              <MapButton 
+                location="" 
+                label="Ver Ubicación" 
+                className="bg-botanical-sky hover:bg-botanical-berry transition-colors duration-500 text-white px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold mx-auto" 
+              />
+            </div>
           </div>
         </FadeInSection>
 
         <FadeInSection delay={200}>
-          <div className="bg-white/60 p-12 rounded-sm shadow-lg text-center border border-white/80 h-full flex flex-col justify-between">
-            <div>
+          <div className="bg-white/60 p-12 rounded-sm shadow-lg text-center border border-white/80 h-full flex flex-col justify-between relative overflow-hidden">
+            <img src={man6} alt="Decoración Magnolias" className="absolute top-0 left-0 w-24 md:w-32 opacity-60 pointer-events-none" />
+            <div className="relative z-10 flex flex-col items-center">
+              <img src={recepcionCardIcon} alt="Icono Recepción" className="w-20 md:w-24 mb-6 opacity-80 mix-blend-multiply" />
               <h4 className="text-3xl text-botanical-berry mb-6 italic">Recepción</h4>
               <p className="text-stone-700 mb-2 font-bold uppercase tracking-widest">14:30 HRS</p>
               <p className="text-stone-600 mb-8 text-sm leading-relaxed">
                 Jardín Alvori
               </p>
             </div>
-            <MapButton 
-              location="" 
-              label="Ver Ubicación" 
-              className="bg-botanical-sky hover:bg-botanical-berry transition-colors duration-500 text-white px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold mx-auto" 
-            />
+            <div className="relative z-10 mt-auto">
+              <MapButton 
+                location="" 
+                label="Ver Ubicación" 
+                className="bg-botanical-sky hover:bg-botanical-berry transition-colors duration-500 text-white px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold mx-auto" 
+              />
+            </div>
           </div>
         </FadeInSection>
       </section>
@@ -283,6 +351,11 @@ const RenataXVLayout = () => {
       {/* 6. CÓDIGO DE VESTIMENTA Y CONFIRMACIÓN */}
       <section className="py-24 px-6 text-center bg-botanical-grass/10 border-y border-botanical-grass/20 relative z-10 pb-32">
         <FadeInSection>
+          {/* ICONO CÓDIGO DE VESTIMENTA MÁS GRANDE */}
+          <div className="flex flex-col items-center mb-6">
+            <img src={dressCodeIcon} alt="Icono Código de Vestimenta" className="w-32 md:w-48 opacity-80 mix-blend-multiply" />
+          </div>
+
           <h3 className="text-3xl text-botanical-berry mb-4 italic font-light">Código de Vestimenta</h3>
           <p className="text-xl text-stone-800 mb-12 tracking-widest uppercase font-bold">Elegant Sport</p>
 
