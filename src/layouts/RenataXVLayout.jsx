@@ -6,7 +6,7 @@ import MapButton from '../components/MapButton';
 // Asegúrate de que los nombres de estas imágenes coincidan con los tuyos
 import floresArriba from '../assets/flor-arriba.png'; 
 import floresAbajo from '../assets/flor-abajo.png';
-import fondoPapel from '../assets/textura-papel.jpg'; 
+import fondoPapel from '../assets/textura-papel.png'; 
 import selloCera from '../assets/sello-cera.png'; 
 import logoFiestapp from '../assets/logo.png'; 
 
