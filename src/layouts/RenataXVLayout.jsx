@@ -3,12 +3,13 @@ import Countdown from '../components/Countdown';
 import RSVPButton from '../components/RSVPButton';
 import MapButton from '../components/MapButton';
 
-// Asegúrate de que los nombres de estas imágenes coincidan con los tuyos
+// Asegúrate de que los nombres de estas imágenes coincidan con tus nuevos PNGs de Fine Art Floral
 import floresArriba from '../assets/flor-arriba.png'; 
 import floresAbajo from '../assets/flor-abajo.png';
 import fondoPapel from '../assets/textura-papel.png'; 
 import selloCera from '../assets/sello-cera.png'; 
 import logoFiestapp from '../assets/logo.png'; 
+import enredadera from '../assets/enredadera.png'; // NUEVA IMAGEN
 
 // --- COMPONENTE DE ANIMACIÓN AL HACER SCROLL ---
 const FadeInSection = ({ children, delay = 0 }) => {
@@ -45,7 +46,7 @@ const RenataXVLayout = () => {
   const [isEnvelopeOpen, setIsEnvelopeOpen] = useState(false);
   const [hideEnvelope, setHideEnvelope] = useState(false);
   
-  const fechaEvento = "2026-07-18T13:00:00"; 
+  const fechaEvento = "2026-07-18T13:00:00"; // 18 de Julio 2026
 
   const handleOpenEnvelope = () => {
     setIsEnvelopeOpen(true);
@@ -75,7 +76,6 @@ const RenataXVLayout = () => {
           <div className="absolute inset-0 bg-stone-900/10"></div>
           
           <div className="relative z-10 flex flex-col items-center group">
-            
             <div className={`w-32 h-32 flex items-center justify-center mb-6 transition-all duration-700 ${
               isEnvelopeOpen ? 'scale-150 opacity-0' : 'group-hover:scale-110'
             }`}>
@@ -96,7 +96,7 @@ const RenataXVLayout = () => {
       )}
 
       {/* =========================================
-          1. PORTADA 
+          1. PORTADA CON NUEVAS FLORES FINE ART
           ========================================= */}
       <section className="relative min-h-screen flex items-center justify-center p-4 md:p-10 overflow-hidden">
         
@@ -107,19 +107,21 @@ const RenataXVLayout = () => {
           <div className="absolute inset-0 bg-[#F9F6F0]/60"></div>
         </div>
 
+        {/* NUEVAS FLORES SUPERIORES - Centradas y enmarcando */}
         <img 
           src={floresArriba} 
-          alt="Flores superiores" 
-          className={`absolute top-0 left-1/2 -translate-x-1/2 w-[120%] md:w-full max-w-2xl z-10 pointer-events-none transition-all duration-[1500ms] ease-out ${
-            isEnvelopeOpen ? 'translate-y-0 opacity-90 delay-300' : '-translate-y-24 opacity-0'
+          alt="Flores superiores Fine Art" 
+          className={`absolute top-0 left-1/2 -translate-x-1/2 w-[110%] md:w-full max-w-3xl z-10 pointer-events-none transition-all duration-[1500ms] ease-out ${
+            isEnvelopeOpen ? 'translate-y-0 opacity-100 delay-300' : '-translate-y-24 opacity-0'
           }`} 
         />
         
+        {/* NUEVAS FLORES INFERIORES - Centradas y enmarcando */}
         <img 
           src={floresAbajo} 
-          alt="Flores inferiores" 
-          className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[120%] md:w-full max-w-2xl z-10 pointer-events-none transition-all duration-[1500ms] ease-out ${
-            isEnvelopeOpen ? 'translate-y-0 opacity-90 delay-300' : 'translate-y-24 opacity-0'
+          alt="Flores inferiores Fine Art" 
+          className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[110%] md:w-full max-w-3xl z-10 pointer-events-none transition-all duration-[1500ms] ease-out ${
+            isEnvelopeOpen ? 'translate-y-0 opacity-100 delay-300' : 'translate-y-24 opacity-0'
           }`} 
         />
 
@@ -152,23 +154,34 @@ const RenataXVLayout = () => {
       </section>
 
       {/* 2. SECCIÓN DE PADRES Y PADRINOS */}
-      <section className="py-24 px-6 text-center max-w-4xl mx-auto relative z-10">
-        <FadeInSection>
-          <h3 className="text-3xl text-botanical-berry mb-12 italic font-light">En compañía de mis padres</h3>
-          <div className="space-y-2 text-xl text-stone-700 font-serif">
-            <p>Francisco Hernández</p>
-            <p>Mayela Ornelas</p>
-          </div>
+      <section className="pt-36 pb-24 px-6 text-center max-w-4xl mx-auto relative z-10">
+        
+        {/* ENREDADERA CAYENDO DESDE EL CORTE SUPERIOR */}
+        <img 
+          src={enredadera} 
+          alt="Enredadera decorativa" 
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-full md:w-[120%] max-w-4xl opacity-95 pointer-events-none z-0" 
+        />
 
-          <div className="my-16 flex justify-center">
-            <div className="w-1 h-1 bg-botanical-grass rounded-full mx-1"></div>
-            <div className="w-1 h-1 bg-botanical-grass rounded-full mx-1"></div>
-            <div className="w-1 h-1 bg-botanical-grass rounded-full mx-1"></div>
-          </div>
+        {/* Contenido principal (con z-10 para asegurar que el texto se lea si la enredadera cae sobre él) */}
+        <div className="relative z-10">
+          <FadeInSection>
+            <h3 className="text-3xl text-botanical-berry mb-12 italic font-light">En compañía de mis padres</h3>
+            <div className="space-y-2 text-xl text-stone-700 font-serif">
+              <p>Francisco Hernández</p>
+              <p>Mayela Ornelas</p>
+            </div>
 
-          <h3 className="text-2xl text-botanical-sky mb-8 italic font-light">Y mis padrinos</h3>
-          <p className="text-lg text-stone-600 font-serif">Arturo Ornelas y Susana Ornelas</p>
-        </FadeInSection>
+            <div className="my-16 flex justify-center">
+              <div className="w-1 h-1 bg-botanical-grass rounded-full mx-1"></div>
+              <div className="w-1 h-1 bg-botanical-grass rounded-full mx-1"></div>
+              <div className="w-1 h-1 bg-botanical-grass rounded-full mx-1"></div>
+            </div>
+
+            <h3 className="text-2xl text-botanical-sky mb-8 italic font-light">Y mis padrinos</h3>
+            <p className="text-lg text-stone-600 font-serif">Arturo Ornelas y Susana Ornelas</p>
+          </FadeInSection>
+        </div>
       </section>
 
       {/* 3. CUENTA REGRESIVA */}
@@ -230,7 +243,7 @@ const RenataXVLayout = () => {
               </p>
             </div>
             <MapButton 
-              location="https://maps.app.goo.gl/D6Pi5FV8ZopJvceLA" 
+              location="" 
               label="Ver Ubicación" 
               className="bg-botanical-sky hover:bg-botanical-berry transition-colors duration-500 text-white px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold mx-auto" 
             />
@@ -243,12 +256,11 @@ const RenataXVLayout = () => {
               <h4 className="text-3xl text-botanical-berry mb-6 italic">Recepción</h4>
               <p className="text-stone-700 mb-2 font-bold uppercase tracking-widest">14:30 HRS</p>
               <p className="text-stone-600 mb-8 text-sm leading-relaxed">
-                Jardín Alvori <br />
-                Arq. Enrique del moral Domínguez, 36826 <br /> Irapuato, Gto.
+                Jardín Alvori
               </p>
             </div>
             <MapButton 
-              location="https://maps.app.goo.gl/oo4GBxFxJZynPByP9" 
+              location="" 
               label="Ver Ubicación" 
               className="bg-botanical-sky hover:bg-botanical-berry transition-colors duration-500 text-white px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold mx-auto" 
             />
@@ -257,7 +269,7 @@ const RenataXVLayout = () => {
       </section>
 
       {/* 6. CÓDIGO DE VESTIMENTA Y CONFIRMACIÓN */}
-      <section className="py-24 px-6 text-center bg-botanical-grass/10 border-y border-botanical-grass/20 relative z-10">
+      <section className="py-24 px-6 text-center bg-botanical-grass/10 border-y border-botanical-grass/20 relative z-10 pb-32">
         <FadeInSection>
           <h3 className="text-3xl text-botanical-berry mb-4 italic font-light">Código de Vestimenta</h3>
           <p className="text-xl text-stone-800 mb-12 tracking-widest uppercase font-bold">Elegant Sport</p>
@@ -272,26 +284,20 @@ const RenataXVLayout = () => {
         </FadeInSection>
       </section>
 
-      {/* =========================================
-          7. FOOTER DE MARCA (FIESTAPP SIGNATURE)
-          Cambiamos a pt-12 y pb-32 para dar espacio al botón
-          ========================================= */}
-      <footer className="w-full pt-12 pb-32 mt-12 bg-[#F9F6F0] border-t border-botanical-grass/10 z-10 relative">
+      {/* FOOTER DE MARCA (FIESTAPP SIGNATURE) */}
+      <footer className="w-full pt-12 pb-32 -mt-20 bg-[#F9F6F0] border-t border-botanical-grass/10 z-10 relative">
         <a href="/" target="_self" className="flex flex-col items-center justify-center group">
-          
           <img 
             src={logoFiestapp} 
             alt="Fiestapp Logo" 
             className="h-6 mb-4 opacity-50 hover:opacity-100 transition-opacity duration-300 group-hover:scale-105" 
           />
-
           <p className="text-[10px] md:text-xs text-botanical-thicket font-serif tracking-[0.4em] uppercase font-bold group-hover:text-botanical-berry transition-colors text-center px-4">
             Crea tu propia invitación inolvidable
           </p>
           <p className="text-[9px] text-stone-400 mt-1">
-            Hecho con ❤️ por Fiestapp©
+            Una experiencia digital de Fiestapp ❤️
           </p>
-          
         </a>
       </footer>
 
