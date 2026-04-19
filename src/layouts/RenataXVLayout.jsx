@@ -13,6 +13,9 @@ import logoFiestapp from '../assets/logo.png';
 import man3 from '../assets/man3.png'; 
 import man6 from '../assets/man6.png'; 
 
+// IMPORTAMOS EL SAKURA PARA LOS PAPAS
+import sakuraPapas from '../assets/sakura-papas.png';
+
 // IMPORTAMOS LOS ICONOS DEL ITINERARIO
 import sakIcon from '../assets/sak-icon.png';
 import iglesiaIcon from '../assets/iglesia-icon.png';
@@ -192,23 +195,33 @@ const RenataXVLayout = () => {
       </section>
 
       {/* 2. SECCIÓN DE PADRES Y PADRINOS */}
-      <section className="py-24 px-6 text-center max-w-4xl mx-auto relative z-10 bg-transparent">
-        <FadeInSection>
-          <h3 className="text-3xl text-botanical-berry mb-12 italic font-light">En compañía de mis padres</h3>
-          <div className="space-y-2 text-xl text-stone-700 font-serif">
-            <p>Francisco Hernández</p>
-            <p>Mayela Ornelas</p>
-          </div>
+      <section className="py-24 px-6 relative z-10 bg-transparent">
+        {/* SAKURA EN LA ESQUINA SUPERIOR IZQUIERDA */}
+        <img 
+          src={sakuraPapas} 
+          alt="Sakura Decoración" 
+          className="absolute top-0 left-0 -translate-x-8 md:-translate-x-12 -translate-y-8 md:-translate-y-12 w-64 md:w-[450px] opacity-90 pointer-events-none mix-blend-multiply" 
+        />
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10 pt-10">
+          <FadeInSection>
+            <h3 className="text-3xl text-botanical-berry mb-12 italic font-light">En compañía de mis padres</h3>
+            <div className="text-xl text-stone-700 font-serif">
+              {/* NOMBRES EN UNA SOLA LÍNEA CON "Y" */}
+              <p>Francisco Hernández Y Mayela Ornelas</p>
+            </div>
 
-          <div className="my-16 flex justify-center">
-            <div className="w-1 h-1 bg-botanical-grass rounded-full mx-1"></div>
-            <div className="w-1 h-1 bg-botanical-grass rounded-full mx-1"></div>
-            <div className="w-1 h-1 bg-botanical-grass rounded-full mx-1"></div>
-          </div>
+            <div className="my-16 flex justify-center">
+              <div className="w-1 h-1 bg-botanical-grass rounded-full mx-1"></div>
+              <div className="w-1 h-1 bg-botanical-grass rounded-full mx-1"></div>
+              <div className="w-1 h-1 bg-botanical-grass rounded-full mx-1"></div>
+            </div>
 
-          <h3 className="text-2xl text-botanical-sky mb-8 italic font-light">Y mis padrinos</h3>
-          <p className="text-lg text-stone-600 font-serif">Arturo Ornelas y Susana Ornelas</p>
-        </FadeInSection>
+            {/* MISMO TAMAÑO DE TEXTO (text-3xl) */}
+            <h3 className="text-3xl text-botanical-sky mb-8 italic font-light">Y mis padrinos</h3>
+            <p className="text-lg text-stone-600 font-serif">Arturo Ornelas y Susana Ornelas</p>
+          </FadeInSection>
+        </div>
       </section>
 
       {/* 3. CUENTA REGRESIVA */}
@@ -305,9 +318,12 @@ const RenataXVLayout = () => {
       <section className="py-24 px-6 max-w-5xl mx-auto grid md:grid-cols-2 gap-12 relative z-10 bg-transparent">
         <FadeInSection delay={0}>
           <div className="bg-white/60 p-12 rounded-sm shadow-lg text-center border border-white/80 h-full flex flex-col justify-between relative overflow-hidden">
+            
             <img src={man3} alt="Decoración Magnolias" className="absolute top-0 right-0 w-24 md:w-32 opacity-60 pointer-events-none" />
+            
             <div className="relative z-10 flex flex-col items-center">
               <img src={iglesiaCardIcon} alt="Icono Ceremonia" className="w-20 md:w-24 mb-6 opacity-80 mix-blend-multiply" />
+              
               <h4 className="text-3xl text-botanical-berry mb-6 italic">Ceremonia</h4>
               <p className="text-stone-700 mb-2 font-bold uppercase tracking-widest">13:00 HRS</p>
               <p className="text-stone-600 mb-8 text-sm leading-relaxed">
@@ -318,7 +334,7 @@ const RenataXVLayout = () => {
             </div>
             <div className="relative z-10 mt-auto">
               <MapButton 
-                location="" 
+                location="https://maps.app.goo.gl/S4FRmRJyKVzL5baM7" 
                 label="Ver Ubicación" 
                 className="bg-botanical-sky hover:bg-botanical-berry transition-colors duration-500 text-white px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold mx-auto" 
               />
@@ -328,18 +344,21 @@ const RenataXVLayout = () => {
 
         <FadeInSection delay={200}>
           <div className="bg-white/60 p-12 rounded-sm shadow-lg text-center border border-white/80 h-full flex flex-col justify-between relative overflow-hidden">
+            
             <img src={man6} alt="Decoración Magnolias" className="absolute top-0 left-0 w-24 md:w-32 opacity-60 pointer-events-none" />
+            
             <div className="relative z-10 flex flex-col items-center">
               <img src={recepcionCardIcon} alt="Icono Recepción" className="w-20 md:w-24 mb-6 opacity-80 mix-blend-multiply" />
+              
               <h4 className="text-3xl text-botanical-berry mb-6 italic">Recepción</h4>
               <p className="text-stone-700 mb-2 font-bold uppercase tracking-widest">14:30 HRS</p>
               <p className="text-stone-600 mb-8 text-sm leading-relaxed">
-                Jardín Alvori
+                Jardín Alvori <br /> Arq. Enrique del moral Domínguez, 36826  <br /> Irapuato, Gto.
               </p>
             </div>
             <div className="relative z-10 mt-auto">
               <MapButton 
-                location="" 
+                location="https://maps.app.goo.gl/BMCXJypVH3aHJCcP9" 
                 label="Ver Ubicación" 
                 className="bg-botanical-sky hover:bg-botanical-berry transition-colors duration-500 text-white px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold mx-auto" 
               />
@@ -351,7 +370,6 @@ const RenataXVLayout = () => {
       {/* 6. CÓDIGO DE VESTIMENTA Y CONFIRMACIÓN */}
       <section className="py-24 px-6 text-center bg-botanical-grass/10 border-y border-botanical-grass/20 relative z-10 pb-32">
         <FadeInSection>
-          {/* ICONO CÓDIGO DE VESTIMENTA MÁS GRANDE */}
           <div className="flex flex-col items-center mb-6">
             <img src={dressCodeIcon} alt="Icono Código de Vestimenta" className="w-32 md:w-48 opacity-80 mix-blend-multiply" />
           </div>
