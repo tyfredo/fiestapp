@@ -95,10 +95,10 @@ const RenataXVLayout = () => {
       )}
 
       {/* =========================================
-          1. PORTADA CON NUEVAS FLORES FINE ART
+          1. PORTADA 
+          Ajuste intermedio: min-h-[90dvh] y flores al 115%
           ========================================= */}
-      {/* CAMBIO AQUÍ: min-h-[80dvh] para móvil, md:min-h-screen para PC */}
-      <section className="relative min-h-[80dvh] md:min-h-screen flex items-center justify-center p-4 md:p-10 overflow-hidden">
+      <section className="relative min-h-[90dvh] md:min-h-screen flex items-center justify-center p-4 md:p-10 overflow-hidden">
         
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center"
@@ -107,22 +107,20 @@ const RenataXVLayout = () => {
           <div className="absolute inset-0 bg-[#F9F6F0]/60"></div>
         </div>
 
-        {/* NUEVAS FLORES SUPERIORES - Centradas y enmarcando */}
-        {/* CAMBIO AQUÍ: w-[130%] en móvil para que llenen mejor el espacio */}
+        {/* FLORES SUPERIORES - Tamaño intermedio w-[115%] */}
         <img 
           src={floresArriba} 
           alt="Flores superiores Fine Art" 
-          className={`absolute top-0 left-1/2 -translate-x-1/2 w-[130%] md:w-full max-w-3xl z-10 pointer-events-none transition-all duration-[1500ms] ease-out ${
+          className={`absolute top-0 left-1/2 -translate-x-1/2 w-[115%] md:w-full max-w-3xl z-10 pointer-events-none transition-all duration-[1500ms] ease-out ${
             isEnvelopeOpen ? 'translate-y-0 opacity-100 delay-300' : '-translate-y-24 opacity-0'
           }`} 
         />
         
-        {/* NUEVAS FLORES INFERIORES - Centradas y enmarcando */}
-        {/* CAMBIO AQUÍ: w-[130%] en móvil para que llenen mejor el espacio */}
+        {/* FLORES INFERIORES - Tamaño intermedio w-[115%] */}
         <img 
           src={floresAbajo} 
           alt="Flores inferiores Fine Art" 
-          className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[130%] md:w-full max-w-3xl z-10 pointer-events-none transition-all duration-[1500ms] ease-out ${
+          className={`absolute bottom-0 left-1/2 -translate-x-1/2 w-[115%] md:w-full max-w-3xl z-10 pointer-events-none transition-all duration-[1500ms] ease-out ${
             isEnvelopeOpen ? 'translate-y-0 opacity-100 delay-300' : 'translate-y-24 opacity-0'
           }`} 
         />
