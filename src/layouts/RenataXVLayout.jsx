@@ -58,6 +58,20 @@ const RenataXVLayout = () => {
     <div className="min-h-screen text-stone-800 font-serif overflow-x-hidden relative bg-[#F9F6F0]">
       
       {/* =========================================
+          NUEVAS ANIMACIONES: "ETHEREAL REVEAL"
+          ========================================= */}
+      <style>{`
+        @keyframes etherealReveal {
+          0% { opacity: 0; transform: translateY(30px) scale(0.95); filter: blur(10px); }
+          100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0px); }
+        }
+        @keyframes softFadeUp {
+          0% { opacity: 0; transform: translateY(15px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
+
+      {/* =========================================
           EL SOBRE (TELÓN OPACO)
           ========================================= */}
       {!hideEnvelope && (
@@ -126,18 +140,30 @@ const RenataXVLayout = () => {
         />
 
         <div className={`relative z-20 w-full max-w-2xl flex flex-col items-center text-center drop-shadow-sm -mt-8 md:mt-0 transition-all duration-[1500ms] ease-out ${
-            isEnvelopeOpen ? 'opacity-100 scale-100 delay-700' : 'opacity-0 scale-90'
+            isEnvelopeOpen ? 'opacity-100 scale-100 delay-500' : 'opacity-0 scale-90'
           }`}
         >
           <p className="text-botanical-thicket tracking-[0.4em] uppercase text-sm md:text-base font-bold mb-2">
             Mis XV Años
           </p>
 
-          <h1 className="text-[120px] md:text-[160px] leading-none mb-2 text-botanical-berry font-script drop-shadow-sm">
+          {/* NOMBRE CON EFECTO ETHEREAL REVEAL */}
+          <h1 
+            className="text-[120px] md:text-[160px] leading-none mb-2 text-botanical-berry font-script drop-shadow-sm opacity-0"
+            style={{
+              animation: isEnvelopeOpen ? 'etherealReveal 2.8s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards' : 'none'
+            }}
+          >
             Renata
           </h1>
           
-          <div className="flex flex-col items-center">
+          {/* FECHA CON EFECTO DE FADE UP SUAVE (Aparece justo después del nombre) */}
+          <div 
+            className="flex flex-col items-center opacity-0"
+            style={{
+              animation: isEnvelopeOpen ? 'softFadeUp 2s cubic-bezier(0.22, 1, 0.36, 1) 1.5s forwards' : 'none'
+            }}
+          >
             <div className="flex items-center justify-center space-x-4 md:space-x-8">
               <p className="text-[10px] md:text-xs tracking-[0.4em] uppercase font-bold text-botanical-thicket">Sábado</p>
               <div className="h-[1px] w-8 md:w-16 bg-botanical-grass"></div>

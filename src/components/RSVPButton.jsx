@@ -19,9 +19,8 @@ const RSVPButton = ({ phone, eventName }) => {
         onClick={() => setIsOpen(true)}
         className="bg-black text-white px-8 py-4 text-[10px] md:text-xs tracking-widest uppercase font-black shadow-[0_10px_40px_rgba(0,0,0,0.4)] hover:scale-105 transition-transform duration-300 flex items-center gap-3 border border-stone-800"
       >
-        <span>RSVP</span>
-        <div className="w-[1px] h-4 bg-stone-600"></div>
-        <span>Confirmar</span>
+        <span>Confirmar Asistencia</span>
+
       </button>
     );
   }
