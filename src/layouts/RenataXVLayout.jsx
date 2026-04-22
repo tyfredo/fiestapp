@@ -31,6 +31,12 @@ import recepcionCardIcon from '../assets/recepcion-icon-card.png';
 // IMPORTAMOS EL ICONO PARA EL CÓDIGO DE VESTIMENTA
 import dressCodeIcon from '../assets/dress-code-icon.png';
 
+// IMPORTAMOS LOS LIRIOS PARA COUNTDOWN E ITINERARIO
+import lirioArribaIzquierda from '../assets/lirio-arriba-izquierda.png';
+import lirioArribaDerecha from '../assets/lirio-arriba-derecha.png';
+import lirioAbajoIzquierda from '../assets/lirio-abajo-izquierda.png';
+import lirioAbajoDerecha from '../assets/lirio-abajo-derecha.png';
+
 // --- COMPONENTE DE ANIMACIÓN REPARADO (Caja contenedora fija) ---
 const FadeInSection = ({ children, delay = 0 }) => {
   const [isVisible, setVisible] = useState(false);
@@ -194,7 +200,70 @@ const RenataXVLayout = () => {
         </div>
       </section>
 
-      {/* 2. SECCIÓN DE PADRES Y PADRINOS */}
+      {/* =========================================
+          2. FRASE DE GRATITUD DE RENATA
+          ========================================= */}
+      <section className="relative py-20 px-6 bg-transparent overflow-hidden">
+        {/* Flores decorativas en esquinas */}
+        <img
+          src={floresArriba}
+          alt=""
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-xl opacity-20 pointer-events-none"
+          aria-hidden="true"
+        />
+        <img
+          src={man3}
+          alt=""
+          className="absolute bottom-0 right-0 w-36 md:w-52 opacity-30 pointer-events-none translate-x-6 translate-y-6"
+          aria-hidden="true"
+        />
+        <img
+          src={man6}
+          alt=""
+          className="absolute bottom-0 left-0 w-36 md:w-52 opacity-30 pointer-events-none -translate-x-6 translate-y-6"
+          aria-hidden="true"
+        />
+
+        <div className="max-w-2xl mx-auto relative z-10">
+          <FadeInSection>
+            <div className="text-center">
+              {/* Ornamento superior */}
+              <div className="flex items-center justify-center gap-3 mb-8">
+                <div className="h-[1px] w-12 bg-botanical-berry/40"></div>
+                <div className="w-2 h-2 rounded-full bg-botanical-berry/50"></div>
+                <div className="h-[1px] w-12 bg-botanical-berry/40"></div>
+              </div>
+
+              <p className="text-botanical-thicket tracking-[0.35em] uppercase text-[10px] md:text-xs font-bold mb-6">
+                Con el corazón
+              </p>
+
+              <blockquote
+                className="text-stone-700 text-base md:text-lg leading-relaxed font-serif italic"
+                style={{ fontStyle: 'italic' }}
+              >
+                "Hoy celebro mis 15 años con el corazón lleno de gratitud. Gracias a Dios por regalarme la vida y guiar cada uno de mis pasos, y gracias a mis padres por su amor incondicional, por sus enseñanzas y por ser mi fuerza y mi hogar. Todo lo que soy y lo que sueño llegar a ser, se lo debo a ustedes."
+              </blockquote>
+
+              {/* Firma */}
+              <p className="mt-8 text-botanical-berry font-script text-4xl md:text-5xl">
+                Renata
+              </p>
+
+              {/* Ornamento inferior */}
+              <div className="flex items-center justify-center gap-3 mt-8">
+                <div className="h-[1px] w-12 bg-botanical-berry/40"></div>
+                <div className="w-2 h-2 rounded-full bg-botanical-berry/50"></div>
+                <div className="h-[1px] w-12 bg-botanical-berry/40"></div>
+              </div>
+            </div>
+          </FadeInSection>
+        </div>
+      </section>
+
+      {/* =========================================
+          3. SECCIÓN DE PADRES Y PADRINOS
+          ========================================= */}
       <section className="py-24 px-6 relative z-10 bg-transparent">
         {/* SAKURA EN LA ESQUINA SUPERIOR IZQUIERDA */}
         <img 
@@ -207,7 +276,6 @@ const RenataXVLayout = () => {
           <FadeInSection>
             <h3 className="text-3xl text-botanical-berry mb-12 italic font-light">En compañía de mis padres</h3>
             <div className="text-xl text-stone-700 font-serif">
-              {/* NOMBRES EN UNA SOLA LÍNEA CON "Y" */}
               <p>Francisco Hernández Y Mayela Ornelas</p>
             </div>
 
@@ -217,15 +285,31 @@ const RenataXVLayout = () => {
               <div className="w-1 h-1 bg-botanical-grass rounded-full mx-1"></div>
             </div>
 
-            {/* MISMO TAMAÑO DE TEXTO (text-3xl) */}
-            <h3 className="text-3xl text-botanical-sky mb-8 italic font-light">Y mis padrinos</h3>
+            <h3 className="text-3xl text-botanical-sky mb-6 italic font-light">Y mis padrinos</h3>
+
+            {/* ── FRASE PARA LOS PADRINOS ── */}
+            <p className="text-stone-500 text-sm md:text-base font-serif italic leading-relaxed mb-8 max-w-md mx-auto">
+              "Necesito un par de manos extras para ayudarme a crecer,<br className="hidden md:block" />
+              y las de ustedes son las mejores."
+            </p>
+
             <p className="text-lg text-stone-600 font-serif">Arturo Ornelas y Susana Ornelas</p>
           </FadeInSection>
         </div>
       </section>
 
-      {/* 3. CUENTA REGRESIVA */}
-      <section className="py-20 text-center border-y border-botanical-grass/20 bg-white/30 backdrop-blur-sm relative z-10">
+      {/* 4. CUENTA REGRESIVA */}
+      <section className="py-20 text-center border-y border-botanical-grass/20 bg-white/30 backdrop-blur-sm relative z-10 overflow-hidden">
+        {/* Lirios en las 4 esquinas del countdown */}
+        <img src={lirioArribaIzquierda} alt="" aria-hidden="true"
+          className="absolute top-0 left-0 w-28 md:w-40 pointer-events-none mix-blend-multiply opacity-75" />
+        <img src={lirioArribaDerecha} alt="" aria-hidden="true"
+          className="absolute top-0 right-0 w-28 md:w-40 pointer-events-none mix-blend-multiply opacity-75" />
+        <img src={lirioAbajoIzquierda} alt="" aria-hidden="true"
+          className="absolute bottom-0 left-0 w-28 md:w-40 pointer-events-none mix-blend-multiply opacity-75" />
+        <img src={lirioAbajoDerecha} alt="" aria-hidden="true"
+          className="absolute bottom-0 right-0 w-28 md:w-40 pointer-events-none mix-blend-multiply opacity-75" />
+
         <FadeInSection>
           <h3 className="text-botanical-thicket text-xs mb-8 uppercase tracking-[0.4em] font-bold">Faltan:</h3>
           <div className="text-4xl md:text-5xl text-botanical-berry">
@@ -234,8 +318,19 @@ const RenataXVLayout = () => {
         </FadeInSection>
       </section>
 
-      {/* 4. ITINERARIO */}
-      <section className="py-32 px-6 max-w-2xl mx-auto relative z-10 bg-transparent">
+      {/* 5. ITINERARIO */}
+      <section className="py-32 px-6 relative z-10 bg-transparent overflow-hidden">
+        {/* Lirios en las esquinas del itinerario */}
+        <img src={lirioArribaIzquierda} alt="" aria-hidden="true"
+          className="absolute top-0 left-0 w-32 md:w-48 pointer-events-none mix-blend-multiply opacity-60" />
+        <img src={lirioArribaDerecha} alt="" aria-hidden="true"
+          className="absolute top-0 right-0 w-32 md:w-48 pointer-events-none mix-blend-multiply opacity-60" />
+        <img src={lirioAbajoIzquierda} alt="" aria-hidden="true"
+          className="absolute bottom-0 left-0 w-32 md:w-48 pointer-events-none mix-blend-multiply opacity-60" />
+        <img src={lirioAbajoDerecha} alt="" aria-hidden="true"
+          className="absolute bottom-0 right-0 w-32 md:w-48 pointer-events-none mix-blend-multiply opacity-60" />
+
+        <div className="max-w-2xl mx-auto relative z-10">
         <FadeInSection>
           <h3 className="text-5xl text-botanical-berry mb-16 text-center italic font-light drop-shadow-sm">Itinerario</h3>
           
@@ -312,9 +407,10 @@ const RenataXVLayout = () => {
             </div>
           </div>
         </FadeInSection>
+        </div>
       </section>
 
-      {/* 5. LOCACIONES Y DETALLES */}
+      {/* 6. LOCACIONES Y DETALLES */}
       <section className="py-24 px-6 max-w-5xl mx-auto grid md:grid-cols-2 gap-12 relative z-10 bg-transparent">
         <FadeInSection delay={0}>
           <div className="bg-white/60 p-12 rounded-sm shadow-lg text-center border border-white/80 h-full flex flex-col justify-between relative overflow-hidden">
@@ -367,7 +463,7 @@ const RenataXVLayout = () => {
         </FadeInSection>
       </section>
 
-      {/* 6. CÓDIGO DE VESTIMENTA Y CONFIRMACIÓN */}
+      {/* 7. CÓDIGO DE VESTIMENTA Y CONFIRMACIÓN */}
       <section className="py-24 px-6 text-center bg-botanical-grass/10 border-y border-botanical-grass/20 relative z-10 pb-32">
         <FadeInSection>
           <div className="flex flex-col items-center mb-6">
