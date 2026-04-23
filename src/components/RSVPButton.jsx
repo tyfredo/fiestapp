@@ -27,7 +27,7 @@ const RSVPButton = ({ phone, eventName }) => {
 
   // --- WIDGET ABIERTO: MODALIDAD 2 (PASES FIJOS / MODO VIP) ---
   if (pasesFijos) {
-    const mensajeVIP = `Hola, confirmo mi asistencia a ${eventName} con mi pase para ${pasesFijos} personas.`;
+    const mensajeVIP = `Hola, confirmo mi asistencia a *${eventName}* con mi pase para *${pasesFijos} personas.*`;
     const linkVIP = `https://wa.me/${phone}?text=${encodeURIComponent(mensajeVIP)}`;
 
     return (
