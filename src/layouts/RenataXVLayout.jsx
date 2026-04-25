@@ -109,87 +109,6 @@ const RenataXVLayout = () => {
       <audio ref={audioRef} src={vivaLaVida} loop preload="auto" />
 
       {/* =========================================
-          MINI-PLAYER FLOTANTE — estilo referencia
-          Visible solo después de abrir el sobre
-          ========================================= */}
-      {hideEnvelope && (
-        <div
-          className="fixed top-0 left-0 right-0 z-50 flex flex-col items-center pt-3 pb-2 pointer-events-none"
-          style={{ background: 'linear-gradient(to bottom, rgba(249,246,240,0.95) 80%, transparent)' }}
-        >
-          {/* Barra de progreso decorativa (no funcional, solo visual) */}
-          <div className="w-48 md:w-64 h-[2px] bg-botanical-grass/20 rounded-full mb-2 pointer-events-auto">
-            <div
-              className={`h-full rounded-full transition-all duration-700 ${isPlaying ? 'w-1/3' : 'w-0'}`}
-              style={{ background: '#8096AD' }}
-            />
-            {isPlaying && (
-              <div
-                className="w-2.5 h-2.5 rounded-full -mt-[5px] transition-all duration-700"
-                style={{ background: '#8096AD', marginLeft: 'calc(33% - 5px)' }}
-              />
-            )}
-          </div>
-
-          {/* Controles */}
-          <div className="flex items-center gap-5 pointer-events-auto">
-            {/* Skip back (decorativo) */}
-            <button
-              aria-label="Anterior"
-              className="opacity-40 cursor-default focus:outline-none"
-              style={{ color: '#8096AD' }}
-              tabIndex={-1}
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/>
-              </svg>
-            </button>
-
-            {/* Botón play/pause principal — usa play.png */}
-            <button
-              onClick={togglePlay}
-              aria-label={isPlaying ? 'Pausar' : 'Reproducir'}
-              className="focus:outline-none group"
-            >
-              <div
-                className="w-10 h-10 rounded-full flex items-center justify-center border-2 transition-all duration-300 group-hover:scale-110"
-                style={{ borderColor: '#8096AD', background: 'rgba(128,150,173,0.08)' }}
-              >
-                {isPlaying ? (
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#8096AD">
-                    <rect x="6" y="4" width="4" height="16" rx="1"/>
-                    <rect x="14" y="4" width="4" height="16" rx="1"/>
-                  </svg>
-                ) : (
-                  <img src={playIcon} alt="Play" className="w-5 h-5 object-contain" style={{ filter: 'hue-rotate(180deg) saturate(0.7) brightness(0.75)' }} />
-                )}
-              </div>
-            </button>
-
-            {/* Skip forward (decorativo) */}
-            <button
-              aria-label="Siguiente"
-              className="opacity-40 cursor-default focus:outline-none"
-              style={{ color: '#8096AD' }}
-              tabIndex={-1}
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M6 18l8.5-6L6 6v12zm2-8.14L11.03 12 8 14.14V9.86zM16 6h2v12h-2z"/>
-              </svg>
-            </button>
-          </div>
-
-          {/* Texto */}
-          <p
-            className="text-[9px] tracking-[0.3em] uppercase font-bold mt-1 pointer-events-none"
-            style={{ color: '#8096AD' }}
-          >
-            {isPlaying ? 'Reproduciendo ♪' : 'Haz click para reproducir'}
-          </p>
-        </div>
-      )}
-
-      {/* =========================================
           EL SOBRE (TELÓN OPACO)
           ========================================= */}
       {!hideEnvelope && (
@@ -245,19 +164,165 @@ const RenataXVLayout = () => {
       </section>
 
       {/* =========================================
-          2. PADRES Y PADRINOS — rediseño elegante
+          1.5 MINI-PLAYER + FRASE DE GRATITUD
+          Sección nueva justo debajo de la portada
+          ========================================= */}
+      <section
+        className="relative z-10 overflow-hidden"
+        style={{
+          backgroundImage: `url(${fondoPapel})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        {/* Overlay suave */}
+        <div className="absolute inset-0 bg-[#F9F6F0]/82 pointer-events-none" />
+
+        {/* Lirios decorativos esquinas */}
+        <img src={lirioArribaIzquierda} alt="" aria-hidden="true"
+          className="absolute top-0 left-0 w-24 md:w-36 pointer-events-none mix-blend-multiply opacity-55" />
+        <img src={lirioArribaDerecha} alt="" aria-hidden="true"
+          className="absolute top-0 right-0 w-24 md:w-36 pointer-events-none mix-blend-multiply opacity-55" />
+
+        <div className="relative z-10 py-14 px-6 flex flex-col items-center">
+
+          {/* ── MINI PLAYER ── */}
+          <FadeInSection>
+            <div className="flex flex-col items-center w-full">
+
+              {/* Barra de progreso */}
+              <div
+                className="relative w-56 md:w-72 h-[2px] rounded-full mb-4"
+                style={{ background: 'rgba(128,150,173,0.2)' }}
+              >
+                <div
+                  className="h-full rounded-full transition-all duration-1000"
+                  style={{
+                    background: '#8096AD',
+                    width: isPlaying ? '38%' : '0%',
+                  }}
+                />
+                {isPlaying && (
+                  <div
+                    className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full border-2 border-white"
+                    style={{ background: '#8096AD', left: 'calc(38% - 6px)' }}
+                  />
+                )}
+              </div>
+
+              {/* Controles */}
+              <div className="flex items-center gap-6 mb-3">
+
+                {/* Skip back (decorativo) */}
+                <button
+                  aria-label="Anterior"
+                  tabIndex={-1}
+                  className="opacity-35 cursor-default focus:outline-none"
+                  style={{ color: '#8096AD' }}
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/>
+                  </svg>
+                </button>
+
+                {/* Botón play/pause — imagen play.png */}
+                <button
+                  onClick={togglePlay}
+                  aria-label={isPlaying ? 'Pausar música' : 'Reproducir música'}
+                  className="focus:outline-none group"
+                >
+                  <div
+                    className="w-11 h-11 rounded-full flex items-center justify-center border-2 transition-all duration-300 group-hover:scale-110 group-active:scale-95"
+                    style={{
+                      borderColor: '#8096AD',
+                      background: isPlaying ? 'rgba(128,150,173,0.12)' : 'transparent',
+                    }}
+                  >
+                    {isPlaying ? (
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="#8096AD">
+                        <rect x="6" y="4" width="4" height="16" rx="1"/>
+                        <rect x="14" y="4" width="4" height="16" rx="1"/>
+                      </svg>
+                    ) : (
+                      <img
+                        src={playIcon}
+                        alt="Play"
+                        className="w-5 h-5 object-contain"
+                        style={{ filter: 'hue-rotate(180deg) saturate(0.6) brightness(0.7)' }}
+                      />
+                    )}
+                  </div>
+                </button>
+
+                {/* Skip forward (decorativo) */}
+                <button
+                  aria-label="Siguiente"
+                  tabIndex={-1}
+                  className="opacity-35 cursor-default focus:outline-none"
+                  style={{ color: '#8096AD' }}
+                >
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M6 18l8.5-6L6 6v12zm2-8.14L11.03 12 8 14.14V9.86zM16 6h2v12h-2z"/>
+                  </svg>
+                </button>
+
+              </div>
+
+              {/* Label de estado */}
+              <p
+                className="text-[9px] tracking-[0.35em] uppercase font-bold"
+                style={{ color: '#8096AD' }}
+              >
+                {isPlaying ? 'Reproduciendo ♪' : 'Haz click para reproducir'}
+              </p>
+
+            </div>
+          </FadeInSection>
+
+          {/* ── DIVISOR ── */}
+          <div className="flex items-center justify-center gap-3 my-10 w-full max-w-xs">
+            <div className="h-[1px] flex-1" style={{ background: 'linear-gradient(to right, transparent, #CFAA7D)' }} />
+            <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#CFAA7D' }} />
+            <div className="h-[1px] flex-1" style={{ background: 'linear-gradient(to left, transparent, #CFAA7D)' }} />
+          </div>
+
+          {/* ── FRASE DE GRATITUD ── */}
+          <FadeInSection delay={150}>
+            <div className="text-center max-w-xl mx-auto px-2">
+
+              <p className="text-[10px] tracking-[0.4em] uppercase font-bold mb-6" style={{ color: '#B9AF5F' }}>
+                Con el corazón
+              </p>
+
+              <blockquote className="text-stone-600 text-sm md:text-base leading-relaxed font-serif italic">
+                "Hoy celebro mis 15 años con el corazón lleno de gratitud. Gracias a Dios por regalarme la vida y guiar cada uno de mis pasos, y gracias a mis padres por su amor incondicional, por sus enseñanzas y por ser mi fuerza y mi hogar. Todo lo que soy y lo que sueño llegar a ser, se lo debo a ustedes."
+              </blockquote>
+
+              {/* Firma */}
+              <p className="mt-8 font-script text-4xl md:text-5xl text-botanical-berry">
+                Renata
+              </p>
+
+            </div>
+          </FadeInSection>
+
+          {/* Espaciado inferior */}
+          <div className="pb-6" />
+
+        </div>
+      </section>
+
+      {/* =========================================
+          2. PADRES Y PADRINOS
           ========================================= */}
       <section className="py-24 px-6 relative z-10 overflow-hidden">
-        {/* Sakura fondo */}
         <img src={sakuraPapas} alt=""
           className="absolute top-0 left-0 -translate-x-8 md:-translate-x-12 -translate-y-8 md:-translate-y-12 w-64 md:w-[420px] opacity-80 pointer-events-none mix-blend-multiply" />
-        {/* Lirio decorativo derecha */}
         <img src={lirioArribaDerecha} alt="" aria-hidden="true"
           className="absolute top-0 right-0 w-28 md:w-44 pointer-events-none mix-blend-multiply opacity-55" />
 
         <div className="max-w-lg mx-auto relative z-10 pt-8">
           <FadeInSection>
-            {/* Tarjeta contenedora */}
             <div
               className="rounded-sm overflow-hidden"
               style={{
@@ -266,48 +331,37 @@ const RenataXVLayout = () => {
                 boxShadow: '0 8px 40px rgba(60,50,40,0.08)',
               }}
             >
-              {/* Borde superior dorado */}
               <div className="h-[2px]" style={{ background: 'linear-gradient(90deg, transparent, #CFAA7D, #B9AF5F, #CFAA7D, transparent)' }} />
 
               <div className="px-8 py-12 text-center">
 
-                {/* ── PADRES ── */}
                 <p className="text-[10px] tracking-[0.4em] uppercase font-bold mb-3" style={{ color: '#B9AF5F' }}>
                   En compañía de mis padres
                 </p>
 
-                {/* Ornamento */}
                 <div className="flex items-center justify-center gap-3 mb-5">
                   <div className="h-[1px] flex-1 max-w-[60px]" style={{ background: 'linear-gradient(to right, transparent, #CC7C72)' }} />
                   <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#CC7C72' }} />
                   <div className="h-[1px] flex-1 max-w-[60px]" style={{ background: 'linear-gradient(to left, transparent, #CC7C72)' }} />
                 </div>
 
-                <p className="text-xl md:text-2xl text-stone-700 font-serif leading-relaxed">
-                  Francisco Hernández
-                </p>
+                <p className="text-xl md:text-2xl text-stone-700 font-serif leading-relaxed">Francisco Hernández</p>
                 <p className="text-xs tracking-[0.3em] uppercase my-2" style={{ color: '#B9AF5F' }}>y</p>
-                <p className="text-xl md:text-2xl text-stone-700 font-serif leading-relaxed">
-                  Mayela Ornelas
-                </p>
+                <p className="text-xl md:text-2xl text-stone-700 font-serif leading-relaxed">Mayela Ornelas</p>
 
-                {/* Separador elegante */}
                 <div className="flex items-center justify-center gap-3 my-10">
                   <div className="h-[1px] flex-1" style={{ background: 'linear-gradient(to right, transparent, #CFAA7D 40%, #B9AF5F 60%, transparent)' }} />
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style={{ color: '#CFAA7D' }}>
-                    <path d="M12 2 L13.5 9 L20 9 L14.5 13.5 L16.5 20.5 L12 16.5 L7.5 20.5 L9.5 13.5 L4 9 L10.5 9 Z"
-                      fill="#CFAA7D" opacity="0.7" />
+                  <svg width="18" height="18" viewBox="0 0 24 24">
+                    <path d="M12 2 L13.5 9 L20 9 L14.5 13.5 L16.5 20.5 L12 16.5 L7.5 20.5 L9.5 13.5 L4 9 L10.5 9 Z" fill="#CFAA7D" opacity="0.7" />
                   </svg>
                   <div className="h-[1px] flex-1" style={{ background: 'linear-gradient(to left, transparent, #CFAA7D 40%, #B9AF5F 60%, transparent)' }} />
                 </div>
 
-                {/* ── FRASE PADRINOS (arriba del título) ── */}
                 <p className="text-stone-400 text-sm font-serif italic leading-relaxed mb-6 max-w-xs mx-auto">
                   "Necesito un par de manos extras para ayudarme a crecer,
                   y las de ustedes son las mejores."
                 </p>
 
-                {/* Ornamento */}
                 <div className="flex items-center justify-center gap-3 mb-5">
                   <div className="h-[1px] flex-1 max-w-[60px]" style={{ background: 'linear-gradient(to right, transparent, #8096AD)' }} />
                   <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#8096AD' }} />
@@ -318,17 +372,12 @@ const RenataXVLayout = () => {
                   Y mis padrinos
                 </p>
 
-                <p className="text-lg md:text-xl text-stone-600 font-serif leading-relaxed">
-                  Arturo Ornelas
-                </p>
+                <p className="text-lg md:text-xl text-stone-600 font-serif leading-relaxed">Arturo Ornelas</p>
                 <p className="text-xs tracking-[0.3em] uppercase my-1" style={{ color: '#B9AF5F' }}>y</p>
-                <p className="text-lg md:text-xl text-stone-600 font-serif leading-relaxed">
-                  Susana Ornelas
-                </p>
+                <p className="text-lg md:text-xl text-stone-600 font-serif leading-relaxed">Susana Ornelas</p>
 
               </div>
 
-              {/* Borde inferior dorado */}
               <div className="h-[2px]" style={{ background: 'linear-gradient(90deg, transparent, #CFAA7D, #B9AF5F, #CFAA7D, transparent)' }} />
             </div>
           </FadeInSection>
@@ -356,11 +405,9 @@ const RenataXVLayout = () => {
       </section>
 
       {/* =========================================
-          4. ITINERARIO — con background.png
+          4. ITINERARIO — con background.png en repeat
           ========================================= */}
       <section className="py-32 px-6 relative z-10 overflow-hidden">
-
-        {/* Background pattern — repeat para que no se estire */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -370,10 +417,8 @@ const RenataXVLayout = () => {
             opacity: 0.18,
           }}
         />
-        {/* Overlay suave */}
         <div className="absolute inset-0 bg-[#F9F6F0]/55 pointer-events-none" />
 
-        {/* Lirios esquinas */}
         <img src={lirioArribaIzquierda} alt="" aria-hidden="true"
           className="absolute top-0 left-0 w-32 md:w-48 pointer-events-none mix-blend-multiply opacity-60" />
         <img src={lirioArribaDerecha} alt="" aria-hidden="true"
@@ -397,7 +442,6 @@ const RenataXVLayout = () => {
 
               <div className="space-y-16 md:space-y-24">
 
-                {/* Evento 1: Ceremonia */}
                 <div className="relative flex items-center justify-between w-full">
                   <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full border border-botanical-berry bg-[#F9F6F0] z-10"></div>
                   <div className="w-1/2 pr-6 md:pr-10 text-right flex flex-col justify-center items-end">
@@ -409,7 +453,6 @@ const RenataXVLayout = () => {
                   </div>
                 </div>
 
-                {/* Evento 2: Recepción */}
                 <div className="relative flex items-center justify-between w-full">
                   <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full border border-botanical-berry bg-[#F9F6F0] z-10"></div>
                   <div className="w-1/2 pr-6 md:pr-10 text-right flex flex-col items-end">
@@ -421,7 +464,6 @@ const RenataXVLayout = () => {
                   </div>
                 </div>
 
-                {/* Evento 3: Comida */}
                 <div className="relative flex items-center justify-between w-full">
                   <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full border border-botanical-berry bg-[#F9F6F0] z-10"></div>
                   <div className="w-1/2 pr-6 md:pr-10 text-right flex flex-col justify-center items-end">
@@ -433,7 +475,6 @@ const RenataXVLayout = () => {
                   </div>
                 </div>
 
-                {/* Evento 4: Vals */}
                 <div className="relative flex items-center justify-between w-full">
                   <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full border border-botanical-berry bg-[#F9F6F0] z-10"></div>
                   <div className="w-1/2 pr-6 md:pr-10 text-right flex flex-col items-end">
@@ -445,7 +486,6 @@ const RenataXVLayout = () => {
                   </div>
                 </div>
 
-                {/* Evento 5: Música y Baile */}
                 <div className="relative flex items-center justify-between w-full">
                   <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full border border-botanical-berry bg-[#F9F6F0] z-10"></div>
                   <div className="w-1/2 pr-6 md:pr-10 text-right flex flex-col justify-center items-end">
@@ -469,7 +509,7 @@ const RenataXVLayout = () => {
       <section className="py-24 px-6 max-w-5xl mx-auto grid md:grid-cols-2 gap-12 relative z-10 bg-transparent">
         <FadeInSection delay={0}>
           <div className="bg-white/60 p-12 rounded-sm shadow-lg text-center border border-white/80 h-full flex flex-col justify-between relative overflow-hidden">
-            <img src={man3} alt="Decoración Magnolias" className="absolute top-0 right-0 w-24 md:w-32 opacity-60 pointer-events-none" />
+            <img src={man3} alt="" className="absolute top-0 right-0 w-24 md:w-32 opacity-60 pointer-events-none" />
             <div className="relative z-10 flex flex-col items-center">
               <img src={iglesiaCardIcon} alt="Icono Ceremonia" className="w-20 md:w-24 mb-6 opacity-80 mix-blend-multiply" />
               <h4 className="text-3xl text-botanical-berry mb-6 italic">Ceremonia</h4>
@@ -492,7 +532,7 @@ const RenataXVLayout = () => {
 
         <FadeInSection delay={200}>
           <div className="bg-white/60 p-12 rounded-sm shadow-lg text-center border border-white/80 h-full flex flex-col justify-between relative overflow-hidden">
-            <img src={man6} alt="Decoración Magnolias" className="absolute top-0 left-0 w-24 md:w-32 opacity-60 pointer-events-none" />
+            <img src={man6} alt="" className="absolute top-0 left-0 w-24 md:w-32 opacity-60 pointer-events-none" />
             <div className="relative z-10 flex flex-col items-center">
               <img src={recepcionCardIcon} alt="Icono Recepción" className="w-20 md:w-24 mb-6 opacity-80 mix-blend-multiply" />
               <h4 className="text-3xl text-botanical-berry mb-6 italic">Recepción</h4>
@@ -563,14 +603,11 @@ const RenataXVLayout = () => {
       </section>
 
       {/* =========================================
-          7. CÓDIGO DE VESTIMENTA — rediseño con nueva imagen
+          7. CÓDIGO DE VESTIMENTA
           ========================================= */}
       <section className="py-24 px-6 relative z-10 overflow-hidden">
-        {/* Fondo sutil */}
         <div className="absolute inset-0 bg-botanical-grass/8 pointer-events-none" />
         <div className="absolute inset-0 border-y border-botanical-grass/20 pointer-events-none" />
-
-        {/* Lirios sutiles */}
         <img src={lirioAbajoIzquierda} alt="" aria-hidden="true"
           className="absolute bottom-0 left-0 w-24 md:w-40 pointer-events-none mix-blend-multiply opacity-40" />
         <img src={lirioArribaDerecha} alt="" aria-hidden="true"
@@ -579,13 +616,11 @@ const RenataXVLayout = () => {
         <div className="relative z-10 max-w-2xl mx-auto">
           <FadeInSection>
             <div className="text-center mb-10">
-              {/* Ornamento superior */}
               <div className="flex items-center justify-center gap-3 mb-6">
                 <div className="h-[1px] w-12" style={{ background: 'linear-gradient(to right, transparent, #CFAA7D)' }} />
                 <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#CFAA7D' }} />
                 <div className="h-[1px] w-12" style={{ background: 'linear-gradient(to left, transparent, #CFAA7D)' }} />
               </div>
-
               <p className="text-[10px] tracking-[0.45em] uppercase font-bold mb-2" style={{ color: '#B9AF5F' }}>
                 Para este día especial
               </p>
@@ -593,7 +628,6 @@ const RenataXVLayout = () => {
               <p className="text-lg text-stone-700 tracking-[0.3em] uppercase font-bold mt-2 mb-8">Elegant Sport</p>
             </div>
 
-            {/* Imagen dress-code — la imagen que se generó, reemplaza dressCodeIcon */}
             <div className="flex justify-center mb-10">
               <img
                 src={dressCodeIcon}
@@ -603,7 +637,6 @@ const RenataXVLayout = () => {
               />
             </div>
 
-            {/* Guías rápidas */}
             <div className="grid grid-cols-2 gap-6 max-w-sm mx-auto mb-10">
               <div className="text-center p-4 rounded-sm" style={{ background: 'rgba(61,79,107,0.06)', border: '1px solid rgba(61,79,107,0.12)' }}>
                 <p className="text-[9px] tracking-[0.3em] uppercase font-bold mb-1" style={{ color: '#3D4F6B' }}>Caballero</p>
@@ -615,14 +648,12 @@ const RenataXVLayout = () => {
               </div>
             </div>
 
-            {/* Divisor */}
             <div className="flex items-center justify-center gap-3 mb-10">
               <div className="h-[1px] w-16" style={{ background: 'linear-gradient(to right, transparent, #CFAA7D)' }} />
               <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#CFAA7D' }} />
               <div className="h-[1px] w-16" style={{ background: 'linear-gradient(to left, transparent, #CFAA7D)' }} />
             </div>
 
-            {/* Confirmación */}
             <div className="text-center">
               <h3 className="text-2xl italic font-light mb-3" style={{ color: '#8096AD' }}>Confirmación de Asistencia</h3>
               <p className="text-stone-500 font-serif text-sm">
@@ -630,7 +661,6 @@ const RenataXVLayout = () => {
                 <span className="font-bold text-stone-700 text-base">8 de Julio</span>
               </p>
             </div>
-
           </FadeInSection>
         </div>
       </section>
