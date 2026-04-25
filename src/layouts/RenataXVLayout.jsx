@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Helmet } from 'react-helmet-async';
 import Countdown from '../components/Countdown';
 import RSVPButton from '../components/RSVPButton';
 import MapButton from '../components/MapButton';
@@ -108,11 +107,7 @@ const RenataXVLayout = () => {
 
       {/* AUDIO ELEMENT */}
       <audio ref={audioRef} src={vivaLaVida} loop preload="auto" />
-      <Helmet>
-        <title>XV Renata - Invitación</title>
-        <meta property="og:title" content="Mis XV Años - Renata" />
-        <meta property="og:image" content="https://www.fiestapp.com.mx/preview-xv.png" />
-      </Helmet>
+
       {/* =========================================
           EL SOBRE (TELÓN OPACO)
           ========================================= */}
