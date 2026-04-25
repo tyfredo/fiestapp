@@ -637,16 +637,7 @@ const RenataXVLayout = () => {
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-6 max-w-sm mx-auto mb-10">
-              <div className="text-center p-4 rounded-sm" style={{ background: 'rgba(61,79,107,0.06)', border: '1px solid rgba(61,79,107,0.12)' }}>
-                <p className="text-[9px] tracking-[0.3em] uppercase font-bold mb-1" style={{ color: '#3D4F6B' }}>Caballero</p>
-                <p className="text-xs text-stone-500 font-serif">Saco · Pantalón de vestir</p>
-              </div>
-              <div className="text-center p-4 rounded-sm" style={{ background: 'rgba(204,124,114,0.06)', border: '1px solid rgba(204,124,114,0.12)' }}>
-                <p className="text-[9px] tracking-[0.3em] uppercase font-bold mb-1" style={{ color: '#CC7C72' }}>Dama</p>
-                <p className="text-xs text-stone-500 font-serif">Blazer · Vestido · Falda</p>
-              </div>
-            </div>
+          
 
             <div className="flex items-center justify-center gap-3 mb-10">
               <div className="h-[1px] w-16" style={{ background: 'linear-gradient(to right, transparent, #CFAA7D)' }} />
