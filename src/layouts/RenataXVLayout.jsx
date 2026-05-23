@@ -41,6 +41,13 @@ import dressCodeIcon from '../assets/dress-code-icon.png';
 import itinerarioBackground from '../assets/background.png';
 import vivaLaVida from '../assets/vivalavida.mp3';
 
+import qrAlbum from '../assets/qr-renata.png';
+
+
+const DRIVE_ALBUM_URL = 'https://drive.google.com/drive/folders/1fLdiSfqxO0_wVnpzFievMCzbUfyuZjsv?usp=sharing';
+
+
+
 // --- COMPONENTE DE ANIMACIÓN ---
 const FadeInSection = ({ children, delay = 0 }) => {
   const [isVisible, setVisible] = useState(false);
@@ -538,14 +545,13 @@ const RenataXVLayout = () => {
               <h4 className="text-3xl text-botanical-berry mb-6 italic">Recepción</h4>
               <p className="text-stone-700 mb-2 font-bold uppercase tracking-widest">14:30 HRS</p>
               <p className="text-stone-600 mb-8 text-sm leading-relaxed">
-                Jardín Alvori<br />
-                Arq. Enrique del moral Domínguez, 36826<br />
-                Irapuato, Gto.
+                Jardín La Alborada<br />
+                Arquitecto Enrique del Moral #403 <br /> Ejido lo de Juárez 36826 Irapuato, Gto.
               </p>
             </div>
             <div className="relative z-10 mt-auto">
               <MapButton
-                location="https://maps.app.goo.gl/BMCXJypVH3aHJCcP9"
+                location="https://maps.app.goo.gl/jti7RnggpbEQL23X6"
                 label="Ver Ubicación"
                 className="bg-[#B9AF5F] hover:bg-[#9a9248] transition-colors duration-500 text-white px-8 py-3 rounded-full text-xs uppercase tracking-widest font-bold mx-auto"
               />
@@ -553,6 +559,8 @@ const RenataXVLayout = () => {
           </div>
         </FadeInSection>
       </section>
+
+
 
       {/* =========================================
           6. LLUVIA DE SOBRES
@@ -601,6 +609,151 @@ const RenataXVLayout = () => {
           </FadeInSection>
         </div>
       </section>
+
+            <section className="py-20 px-6 relative z-10 overflow-hidden">
+        {/* Fondo sutil */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'linear-gradient(160deg, #fdf8f2 0%, #f5ede4 50%, #fdf8f2 100%)',
+          }}
+        />
+        {/* Adorno floral derecha */}
+        <img src={man3} alt="" aria-hidden="true"
+          className="absolute bottom-0 right-0 w-28 md:w-40 opacity-40 pointer-events-none translate-x-4 translate-y-4" />
+        <img src={man6} alt="" aria-hidden="true"
+          className="absolute top-0 left-0 w-28 md:w-40 opacity-40 pointer-events-none -translate-x-4 -translate-y-4" />
+
+        <div className="relative z-10 max-w-sm mx-auto">
+          <FadeInSection>
+
+            {/* Tarjeta QR */}
+            <div
+              className="rounded-sm overflow-hidden text-center"
+              style={{
+                background: 'linear-gradient(160deg, #fdfcf8 0%, #f9f3ec 100%)',
+                border: '1px solid rgba(207,170,125,0.35)',
+                boxShadow: '0 10px 50px rgba(60,40,20,0.09)',
+              }}
+            >
+              {/* Franja superior */}
+              <div className="h-[3px]" style={{ background: 'linear-gradient(90deg, #CFAA7D, #CC7C72, #CFAA7D)' }} />
+
+              <div className="px-8 py-10">
+
+                {/* Ícono cámara SVG inline */}
+                <div className="flex justify-center mb-4">
+                  <div
+                    className="w-14 h-14 rounded-full flex items-center justify-center"
+                    style={{ background: 'rgba(204,124,114,0.10)', border: '1.5px solid rgba(204,124,114,0.25)' }}
+                  >
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#CC7C72" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                      <circle cx="12" cy="13" r="4"/>
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Título */}
+                <h3
+                  className="text-3xl md:text-4xl font-script mb-1 leading-tight"
+                  style={{ color: '#CC7C72' }}
+                >
+                  Álbum de Fotos
+                </h3>
+                <p
+                  className="text-[10px] tracking-[0.35em] uppercase font-bold mb-6"
+                  style={{ color: '#B9AF5F' }}
+                >
+                  XV de Renata · 18 Julio 2026
+                </p>
+
+                {/* Divisor */}
+                <div className="flex items-center justify-center gap-2 mb-6">
+                  <div className="h-[1px] w-8" style={{ background: '#CFAA7D' }} />
+                  <div className="w-1.5 h-1.5 rounded-full" style={{ background: '#CFAA7D' }} />
+                  <div className="h-[1px] w-8" style={{ background: '#CFAA7D' }} />
+                </div>
+
+                <p className="text-stone-500 text-sm font-serif leading-relaxed mb-8">
+                  Comparte tus fotos o videos del evento en nuestro álbum compartido. Escanea el código o presiona el botón para acceder.
+                </p>
+
+                {/* QR con marco elegante */}
+                <div className="flex justify-center mb-6">
+                  <div
+                    className="p-3 rounded-sm inline-block"
+                    style={{
+                      background: '#ffffff',
+                      border: '1.5px solid rgba(207,170,125,0.4)',
+                      boxShadow: '0 4px 20px rgba(60,40,20,0.08)',
+                    }}
+                  >
+                    <img
+                      src={qrAlbum}
+                      alt="QR Álbum de fotos XV Renata"
+                      className="w-40 h-40 object-contain"
+                      style={{ imageRendering: 'pixelated' }}
+                    />
+                  </div>
+                </div>
+
+                {/* Texto bajo el QR */}
+                <p
+                  className="text-[10px] tracking-[0.3em] uppercase font-bold mb-6"
+                  style={{ color: '#B9AF5F' }}
+                >
+                  Escanea con tu cámara
+                </p>
+
+                {/* Divisor con "ó" */}
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="h-[1px] flex-1" style={{ background: 'rgba(207,170,125,0.4)' }} />
+                  <span className="text-xs font-serif italic" style={{ color: '#CFAA7D' }}>ó</span>
+                  <div className="h-[1px] flex-1" style={{ background: 'rgba(207,170,125,0.4)' }} />
+                </div>
+
+                {/* Botón acceso directo */}
+                <a
+                  href={DRIVE_ALBUM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-center gap-2 w-full py-3.5 px-6 rounded-full transition-all duration-300 hover:scale-[1.02] active:scale-95"
+                  style={{
+                    background: 'linear-gradient(135deg, #CC7C72 0%, #c06860 100%)',
+                    boxShadow: '0 4px 20px rgba(204,124,114,0.35)',
+                    color: '#ffffff',
+                  }}
+                >
+                  {/* Ícono Google Drive SVG */}
+                  <svg width="16" height="16" viewBox="0 0 87.3 78" fill="white" opacity="0.9">
+                    <path d="M6.6 66.85l3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8H0c0 1.55.4 3.1 1.2 4.5z"/>
+                    <path d="M43.65 25L29.9 1.2C28.55 2 27.4 3.1 26.6 4.5L1.2 48.4c-.8 1.4-1.2 2.95-1.2 4.5h27.5z"/>
+                    <path d="M73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5H60.1l5.85 11.5z"/>
+                    <path d="M43.65 25L57.4 1.2C56.05.4 54.5 0 52.95 0H34.35c-1.55 0-3.1.45-4.45 1.2z"/>
+                    <path d="M59.8 52.9H27.5L13.75 76.7c1.35.8 2.9 1.3 4.45 1.3h50.9c1.55 0 3.1-.45 4.45-1.2z"/>
+                    <path d="M60.1 52.9l-16.45-28.5-16.45 28.5z" opacity="0.5"/>
+                  </svg>
+                  <span className="text-xs tracking-[0.2em] uppercase font-bold">
+                    Acceder al álbum
+                  </span>
+                  {/* Flecha */}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </a>
+
+              </div>
+
+              {/* Franja inferior */}
+              <div className="h-[3px]" style={{ background: 'linear-gradient(90deg, #CFAA7D, #CC7C72, #CFAA7D)' }} />
+            </div>
+
+          </FadeInSection>
+        </div>
+      </section>
+
+
 
       {/* =========================================
           7. CÓDIGO DE VESTIMENTA
