@@ -14,6 +14,7 @@ import doradoFoot  from '../assets/dorado-foot.png';       // splash inferior / 
 import doradoMancha from '../assets/dorado-mancha.png';    // mancha gold
 import dresscode   from '../assets/dresscode-formal.png';  // quinceañera dress
 import reservado   from '../assets/reservado-festejada.png'; // cartel "reservado"
+import logoGlitter from '../assets/logo-glitter.png';      // logo con efecto glitter
 // ────────────────────────────────────────────────────────────────────────────
 
 // ── FADE-IN ON SCROLL ────────────────────────────────────────────────────────
@@ -448,7 +449,7 @@ const DulceXVLayout = () => {
                 <p style={{ fontFamily: "'Cinzel', serif", fontSize: 12, letterSpacing: '0.2em', color: GOLD_LIGHT, marginBottom: 6 }}>17:30 HRS</p>
                 <p style={{ fontSize: 13, color: '#7a6a50', fontStyle: 'italic', marginBottom: 20 }}>Irapuato, Guanajuato</p>
                 <MapButton
-                  location="https://maps.app.goo.gl/73XBrzsqbivhTfSk6"
+                  location="https://maps.app.goo.gl/95cd6r891y9caBC66"
                   label="Ver Ubicación"
                   className="btn-gold"
                 />
@@ -466,7 +467,7 @@ const DulceXVLayout = () => {
                 <p style={{ fontFamily: "'Cinzel', serif", fontSize: 12, letterSpacing: '0.2em', color: GOLD_LIGHT, marginBottom: 6 }}>19:00 HRS</p>
                 <p style={{ fontSize: 13, color: '#7a6a50', fontStyle: 'italic', marginBottom: 20 }}>Irapuato, Guanajuato</p>
                 <MapButton
-                  location="https://maps.google.com/maps/place//data=!4m2!3m1!1s0x842c807535937005:0x61f35bde817392f4"
+                  location="https://maps.app.goo.gl/a1qLh3zq3FaLUHPw5"
                   label="Ver Ubicación"
                   className="btn-gold"
                 />
@@ -635,6 +636,89 @@ const DulceXVLayout = () => {
           </p>
         </div>
       </footer>
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          FOOTER — Nombre + Fiestapp branding
+          ═══════════════════════════════════════════════════════════════════ */}
+      <footer style={{ padding: '48px 24px 120px', textAlign: 'center', position: 'relative', overflow: 'hidden', borderTop: `1px solid ${GOLD}15` }}>
+        {/* Mancha dorada decorativa fondo */}
+       
+        <div style={{ position: 'relative', zIndex: 2 }}>
+
+         
+          {/* Divisor antes del branding */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, marginBottom: 28, maxWidth: 200, margin: '0 auto 28px' }}>
+            <div style={{ height: 1, flex: 1, background: `linear-gradient(to right, transparent, ${GOLD}44)` }} />
+            <div style={{ width: 4, height: 4, borderRadius: '50%', background: `${GOLD}66` }} />
+            <div style={{ height: 1, flex: 1, background: `linear-gradient(to left, transparent, ${GOLD}44)` }} />
+          </div>
+
+          {/* Fiestapp branding */}
+          <p style={{ fontFamily: "'Cinzel', serif", fontSize: 8, letterSpacing: '0.4em', textTransform: 'uppercase', color: '', marginBottom: 14 }}>
+            Hecho con
+          </p>
+
+          {/* Logo glitter */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, marginBottom: 18 }}>
+            <img src={logoGlitter} alt="Fiestapp"
+              style={{ width: 36, height: 36, objectFit: 'contain', filter: 'drop-shadow(0 0 8px rgba(201,168,76,0.5))' }} />
+            <span style={{ fontFamily: "'Cinzel', serif", fontSize: 14, letterSpacing: '0.25em', color: GOLD, textTransform: 'uppercase' }}>
+              Fiestapp
+            </span>
+          </div>
+
+          {/* Redes sociales */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 20 }}>
+
+            {/* Instagram */}
+            <a href="https://www.instagram.com/fiestappds/" target="_blank" rel="noopener noreferrer"
+              style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, textDecoration: 'none', transition: 'transform 0.2s' }}
+              onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+              onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+            >
+              <div style={{
+                width: 40, height: 40, borderRadius: '50%',
+                background: 'linear-gradient(135deg, #C9A84C22, #C9A84C44)',
+                border: `1px solid ${GOLD}44`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={GOLD} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <circle cx="12" cy="12" r="4"/>
+                  <circle cx="17.5" cy="6.5" r="1.5" fill={GOLD} stroke="none"/>
+                </svg>
+              </div>
+              <span style={{ fontFamily: "'Cinzel', serif", fontSize: 7, letterSpacing: '0.2em', color: '#5a4f38', textTransform: 'uppercase' }}>Instagram</span>
+            </a>
+
+            {/* Facebook */}
+            <a href="https://www.facebook.com/profile.php?id=61577438272854" target="_blank" rel="noopener noreferrer"
+              style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 6, textDecoration: 'none', transition: 'transform 0.2s' }}
+              onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.1)'}
+              onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+            >
+              <div style={{
+                width: 40, height: 40, borderRadius: '50%',
+                background: 'linear-gradient(135deg, #C9A84C22, #C9A84C44)',
+                border: `1px solid ${GOLD}44`,
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill={GOLD}>
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                </svg>
+              </div>
+              <span style={{ fontFamily: "'Cinzel', serif", fontSize: 7, letterSpacing: '0.2em', color: '#5a4f38', textTransform: 'uppercase' }}>Facebook</span>
+            </a>
+
+          </div>
+
+          <p style={{ fontFamily: "'Cinzel', serif", fontSize: 7, letterSpacing: '0.25em', color: '#cac4bb', textTransform: 'uppercase', marginTop: 20 }}>
+            Crea tu invitación digital · fiestapp.com.mx
+          </p>
+
+        </div>
+      </footer>
+
 
       {/* ═══════════════════════════════════════════════════════════════════
           BOTÓN FLOTANTE RSVP
