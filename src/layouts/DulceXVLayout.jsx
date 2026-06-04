@@ -15,6 +15,7 @@ import doradoMancha from '../assets/dorado-mancha.png';    // mancha gold
 import dresscode   from '../assets/dresscode-formal.png';  // quinceañera dress
 //import reservado   from '../assets/reservado-festejada.png'; // cartel "reservado"
 import logoGlitter from '../assets/logo-glitter.png';      // logo con efecto glitter
+import hotelCalifornia from '../assets/hotelcalifornia.m4a';
 // ────────────────────────────────────────────────────────────────────────────
 
 // ── FADE-IN ON SCROLL ────────────────────────────────────────────────────────
@@ -90,6 +91,13 @@ const DulceXVLayout = () => {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, [envelopeOpen]);
+
+  useEffect(() => {
+  const audio = new Audio(hotelCalifornia);
+  audio.loop = true;
+  audio.volume = 0.5;
+  audio.play().catch(() => {});
+}, []);
 
   // ── Styles ────────────────────────────────────────────────────────────────
   const BG = '#0A0800';
