@@ -13,7 +13,7 @@ import doradoTop   from '../assets/dorado-top.png';        // splash superior
 import doradoFoot  from '../assets/dorado-foot.png';       // splash inferior / footer
 import doradoMancha from '../assets/dorado-mancha.png';    // mancha gold
 import dresscode   from '../assets/dresscode-formal.png';  // quinceañera dress
-//import reservado   from '../assets/reservado-festejada.png'; // cartel "reservado"
+import reservado   from '../assets/reservado-festejada.png'; // cartel "reservado"
 import logoGlitter from '../assets/logo-glitter.png';      // logo con efecto glitter
 // ────────────────────────────────────────────────────────────────────────────
 
@@ -479,7 +479,7 @@ const DulceXVLayout = () => {
         </FadeIn>
       </section>
 
-     {/* ═══════════════════════════════════════════════════════════════════
+ {/* ═══════════════════════════════════════════════════════════════════
     7. DRESS CODE
     ═══════════════════════════════════════════════════════════════════ */}
 <section style={{ padding: '70px 24px', position: 'relative', overflow: 'hidden', borderTop: `1px solid ${GOLD}22` }}>
@@ -514,7 +514,7 @@ const DulceXVLayout = () => {
           }}>
             <img src={dresscode} alt="Código de vestimenta formal"
               style={{ width: 130, objectFit: 'contain', margin: '0 auto', display: 'block', filter: 'none' }} />
-            <p style={{ fontFamily: "'Cinzel', serif", fontSize: 10, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#6b5a2e', marginTop: 14, marginBottom: 0 }}>
+            <p style={{ fontFamily: "'Cinzel', serif", fontSize: 10, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#000000', marginTop: 14, marginBottom: 0 }}>
               Damas &amp; Caballeros
             </p>
           </div>
@@ -551,6 +551,66 @@ const DulceXVLayout = () => {
     </div>
   </FadeIn>
 </section>
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          8. LLUVIA DE SOBRES + BEBIDAS
+          ═══════════════════════════════════════════════════════════════════ */}
+      <section style={{ padding: '60px 24px 80px', position: 'relative', overflow: 'hidden' }}>
+        {/* Estrella flotante deco */}
+        <img src={estrella1} alt=""
+          style={{ position: 'absolute', top: 20, right: 12, width: 60, opacity: 0.45, pointerEvents: 'none', mixBlendMode: 'screen', animationDelay: '1s' }} className="float-star" />
+
+        <FadeIn>
+          <div style={{ maxWidth: 480, margin: '0 auto', position: 'relative', zIndex: 2 }}>
+            <div style={{ ...cardStyle, padding: 0, overflow: 'hidden', textAlign: 'center' }}>
+              <div style={topBarStyle} />
+              <div style={{ padding: '36px 28px' }}>
+
+                <p style={{ fontFamily: "'Sacramento', cursive", fontSize: 52, background: `linear-gradient(135deg, ${GOLD}, ${GOLD_LIGHT})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', lineHeight: 1.1, marginBottom: 4 }}>
+                  Mesa de
+                </p>
+                <h3 style={{ fontFamily: "'Cinzel', serif", fontSize: 18, letterSpacing: '0.2em', color: GOLD_LIGHT, marginBottom: 20 }}>
+                  REGALOS
+                </h3>
+
+                <GoldDivider />
+
+                <p style={{ fontSize: 14, fontStyle: 'italic', color: '#c8b080', lineHeight: 1.8, marginBottom: 20 }}>
+                  Tu presencia es mi verdadero regalo,<br />
+                  pero si deseas tener un detalle conmigo,<br />
+                  lo recibiré con todo el corazón.
+                </p>
+
+                {/* Ícono de sobre */}
+                <div style={{ fontSize: 48, marginBottom: 16 }}>✉️</div>
+
+                <div style={{ background: `${GOLD_DIM}`, border: `1px solid ${GOLD}33`, borderRadius: 2, padding: '16px 20px', marginBottom: 0 }}>
+                  <p style={{ fontFamily: "'Cinzel', serif", fontSize: 10, letterSpacing: '0.3em', textTransform: 'uppercase', color: GOLD, marginBottom: 6 }}>
+                    Lluvia de Sobres
+                  </p>
+                  <p style={{ fontSize: 13, color: '#a09070', lineHeight: 1.6 }}>
+                    Contaremos con buzón en el evento.
+                  </p>
+                </div>
+
+                <GoldDivider />
+
+                {/* Bebidas */}
+                <div style={{ background: `${GOLD_DIM}`, border: `1px solid ${GOLD}33`, borderRadius: 2, padding: '16px 20px' }}>
+                  <p style={{ fontFamily: "'Cinzel', serif", fontSize: 10, letterSpacing: '0.3em', textTransform: 'uppercase', color: GOLD, marginBottom: 6 }}>
+                    Bebidas
+                  </p>
+                  <p style={{ fontSize: 13, color: '#a09070', lineHeight: 1.6 }}>
+                    Puedes llevar tu bebida de preferencia. 🥂
+                  </p>
+                </div>
+
+              </div>
+              <div style={topBarStyle} />
+            </div>
+          </div>
+        </FadeIn>
+      </section>
 
       {/* ═══════════════════════════════════════════════════════════════════
           9. CONFIRMACIÓN
