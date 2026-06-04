@@ -13,7 +13,7 @@ import doradoTop   from '../assets/dorado-top.png';        // splash superior
 import doradoFoot  from '../assets/dorado-foot.png';       // splash inferior / footer
 import doradoMancha from '../assets/dorado-mancha.png';    // mancha gold
 import dresscode   from '../assets/dresscode-formal.png';  // quinceañera dress
-import reservado   from '../assets/reservado-festejada.png'; // cartel "reservado"
+//import reservado   from '../assets/reservado-festejada.png'; // cartel "reservado"
 import logoGlitter from '../assets/logo-glitter.png';      // logo con efecto glitter
 // ────────────────────────────────────────────────────────────────────────────
 
