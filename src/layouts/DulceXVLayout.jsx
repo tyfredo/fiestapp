@@ -13,7 +13,7 @@ import doradoTop   from '../assets/dorado-top.png';        // splash superior
 import doradoFoot  from '../assets/dorado-foot.png';       // splash inferior / footer
 import doradoMancha from '../assets/dorado-mancha.png';    // mancha gold
 import dresscode   from '../assets/dresscode-formal.png';  // quinceañera dress
-import reservado   from '../assets/reservado-festejada.png'; // cartel "reservado"
+//import reservado   from '../assets/reservado-festejada.png'; // cartel "reservado"
 import logoGlitter from '../assets/logo-glitter.png';      // logo con efecto glitter
 // ────────────────────────────────────────────────────────────────────────────
 
@@ -479,120 +479,85 @@ const DulceXVLayout = () => {
         </FadeIn>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════════════
-          7. DRESS CODE
-          ═══════════════════════════════════════════════════════════════════ */}
-      <section style={{ padding: '70px 24px', position: 'relative', overflow: 'hidden', borderTop: `1px solid ${GOLD}22` }}>
-        <img src={doradoMancha} alt=""
-          style={{ position: 'absolute', bottom: -20, right: -20, width: 220, opacity: 0.25, pointerEvents: 'none', mixBlendMode: 'screen', transform: 'rotate(30deg)' }} />
+     {/* ═══════════════════════════════════════════════════════════════════
+    7. DRESS CODE
+    ═══════════════════════════════════════════════════════════════════ */}
+<section style={{ padding: '70px 24px', position: 'relative', overflow: 'hidden', borderTop: `1px solid ${GOLD}22` }}>
+  <img src={doradoMancha} alt=""
+    style={{ position: 'absolute', bottom: -20, right: -20, width: 220, opacity: 0.25, pointerEvents: 'none', mixBlendMode: 'screen', transform: 'rotate(30deg)' }} />
 
-        <FadeIn>
-          <div style={{ maxWidth: 480, margin: '0 auto', position: 'relative', zIndex: 2 }}>
-            <div style={{ ...cardStyle, padding: 0, overflow: 'hidden', textAlign: 'center' }}>
-              <div style={topBarStyle} />
-              <div style={{ padding: '36px 28px' }}>
+  <FadeIn>
+    <div style={{ maxWidth: 480, margin: '0 auto', position: 'relative', zIndex: 2 }}>
+      <div style={{ ...cardStyle, padding: 0, overflow: 'hidden', textAlign: 'center' }}>
+        <div style={topBarStyle} />
+        <div style={{ padding: '36px 28px' }}>
 
-                <p style={{ fontFamily: "'Cinzel', serif", fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: GOLD, marginBottom: 8 }}>
-                  Para Este Día Especial
-                </p>
-                <h3 style={{ fontFamily: "'Cinzel Decorative', serif", fontSize: 20, color: GOLD_LIGHT, marginBottom: 4 }}>
-                  Código de Vestimenta
-                </h3>
-                <p style={{ fontFamily: "'Cinzel', serif", fontSize: 15, letterSpacing: '0.25em', color: '#EDE0C4', marginBottom: 20 }}>
-                  FORMAL
-                </p>
+          <p style={{ fontFamily: "'Cinzel', serif", fontSize: 9, letterSpacing: '0.5em', textTransform: 'uppercase', color: GOLD, marginBottom: 8 }}>
+            Para Este Día Especial
+          </p>
+          <h3 style={{ fontFamily: "'Cinzel Decorative', serif", fontSize: 20, color: GOLD_LIGHT, marginBottom: 4 }}>
+            Código de Vestimenta
+          </h3>
+          <p style={{ fontFamily: "'Cinzel', serif", fontSize: 15, letterSpacing: '0.25em', color: '#EDE0C4', marginBottom: 20 }}>
+            FORMAL
+          </p>
 
-                <GoldDivider />
+          <GoldDivider />
 
-                {/* Imagen del dress code */}
-                <div style={{ display: 'flex', justifyContent: 'center', gap: 16, marginBottom: 20 }}>
-                  <img src={dresscode} alt="Vestimenta de la festejada"
-                    style={{ width: 100, objectFit: 'contain', filter: 'drop-shadow(0 4px 20px rgba(201,168,76,0.4))' }} />
-                </div>
-
-                {/* Cartel "reservado" */}
-                <div style={{ marginBottom: 20 }}>
-                  <img src={reservado} alt="Color reservado para la festejada"
-                    style={{ maxWidth: 260, width: '100%', margin: '0 auto', display: 'block', filter: 'drop-shadow(0 2px 12px rgba(201,168,76,0.5))' }} />
-                </div>
-
-                <p style={{ fontSize: 13, color: '#7a6a50', fontStyle: 'italic', lineHeight: 1.7 }}>
-                  El color <strong style={{ color: GOLD }}>dorado</strong> queda reservado exclusivamente para la quinceañera.
-                </p>
-
-              </div>
-              <div style={topBarStyle} />
-            </div>
+          {/* Panel claro con el dresscode */}
+          <div style={{
+            background: '#c7a45e',
+            borderRadius: 4,
+            border: `1px solid ${GOLD}55`,
+            padding: '28px 20px 20px',
+            marginBottom: 20,
+          }}>
+            <img src={dresscode} alt="Código de vestimenta formal"
+              style={{ width: 130, objectFit: 'contain', margin: '0 auto', display: 'block', filter: 'none' }} />
+            <p style={{ fontFamily: "'Cinzel', serif", fontSize: 10, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#6b5a2e', marginTop: 14, marginBottom: 0 }}>
+              Damas &amp; Caballeros
+            </p>
           </div>
-        </FadeIn>
-      </section>
 
-      {/* ═══════════════════════════════════════════════════════════════════
-          8. LLUVIA DE SOBRES + BEBIDAS
-          ═══════════════════════════════════════════════════════════════════ */}
-      <section style={{ padding: '60px 24px 80px', position: 'relative', overflow: 'hidden' }}>
-        {/* Estrella flotante deco */}
-        <img src={estrella1} alt=""
-          style={{ position: 'absolute', top: 20, right: 12, width: 60, opacity: 0.45, pointerEvents: 'none', mixBlendMode: 'screen', animationDelay: '1s' }} className="float-star" />
+          {/* Color reservado — paleta visual */}
+          <div style={{ background: GOLD_DIM, border: `1px solid ${GOLD}33`, borderRadius: 2, padding: '18px 20px', marginBottom: 0 }}>
+            <p style={{ fontFamily: "'Cinzel', serif", fontSize: 10, letterSpacing: '0.3em', textTransform: 'uppercase', color: GOLD, marginBottom: 12 }}>
+              Color Reservado
+            </p>
 
-        <FadeIn>
-          <div style={{ maxWidth: 480, margin: '0 auto', position: 'relative', zIndex: 2 }}>
-            <div style={{ ...cardStyle, padding: 0, overflow: 'hidden', textAlign: 'center' }}>
-              <div style={topBarStyle} />
-              <div style={{ padding: '36px 28px' }}>
-
-                <p style={{ fontFamily: "'Sacramento', cursive", fontSize: 52, background: `linear-gradient(135deg, ${GOLD}, ${GOLD_LIGHT})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text', lineHeight: 1.1, marginBottom: 4 }}>
-                  Mesa de
-                </p>
-                <h3 style={{ fontFamily: "'Cinzel', serif", fontSize: 18, letterSpacing: '0.2em', color: GOLD_LIGHT, marginBottom: 20 }}>
-                  REGALOS
-                </h3>
-
-                <GoldDivider />
-
-                <p style={{ fontSize: 14, fontStyle: 'italic', color: '#c8b080', lineHeight: 1.8, marginBottom: 20 }}>
-                  Tu presencia es mi verdadero regalo,<br />
-                  pero si deseas tener un detalle conmigo,<br />
-                  lo recibiré con todo el corazón.
-                </p>
-
-                {/* Ícono de sobre */}
-                <div style={{ fontSize: 48, marginBottom: 16 }}>✉️</div>
-
-                <div style={{ background: `${GOLD_DIM}`, border: `1px solid ${GOLD}33`, borderRadius: 2, padding: '16px 20px', marginBottom: 0 }}>
-                  <p style={{ fontFamily: "'Cinzel', serif", fontSize: 10, letterSpacing: '0.3em', textTransform: 'uppercase', color: GOLD, marginBottom: 6 }}>
-                    Lluvia de Sobres
-                  </p>
-                  <p style={{ fontSize: 13, color: '#a09070', lineHeight: 1.6 }}>
-                    Contaremos con buzón en el evento.
-                  </p>
-                </div>
-
-                <GoldDivider />
-
-                {/* Bebidas */}
-                <div style={{ background: `${GOLD_DIM}`, border: `1px solid ${GOLD}33`, borderRadius: 2, padding: '16px 20px' }}>
-                  <p style={{ fontFamily: "'Cinzel', serif", fontSize: 10, letterSpacing: '0.3em', textTransform: 'uppercase', color: GOLD, marginBottom: 6 }}>
-                    Bebidas
-                  </p>
-                  <p style={{ fontSize: 13, color: '#a09070', lineHeight: 1.6 }}>
-                    Puedes llevar tu bebida de preferencia. 🥂
-                  </p>
-                </div>
-
-              </div>
-              <div style={topBarStyle} />
+            {/* Swatches de colores dorados */}
+            <div style={{ display: 'flex', justifyContent: 'center', gap: 8, marginBottom: 12 }}>
+              {['#C9A84C', '#f0d060', '#a07830', '#e8c97a', '#d4a843'].map((c, i) => (
+                <div key={i} style={{
+                  width: 28, height: 28, borderRadius: '50%',
+                  background: c,
+                  border: '2px solid rgba(255,255,255,0.15)',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+                }} />
+              ))}
             </div>
+
+            <p style={{ fontSize: 13, color: '#c8b080', lineHeight: 1.7, fontStyle: 'italic' }}>
+              Todos los tonos <strong style={{ color: GOLD }}>dorados y champagne</strong> están reservados exclusivamente para la festejada.
+            </p>
           </div>
-        </FadeIn>
-      </section>
+
+          <GoldDivider />
+
+         
+        </div>
+        <div style={topBarStyle} />
+      </div>
+    </div>
+  </FadeIn>
+</section>
 
       {/* ═══════════════════════════════════════════════════════════════════
           9. CONFIRMACIÓN
           ═══════════════════════════════════════════════════════════════════ */}
       <section style={{ padding: '60px 24px', position: 'relative', overflow: 'hidden', borderTop: `1px solid ${GOLD}22`, textAlign: 'center' }}>
         <img src={cascada} alt=""
-          style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%) scaleY(-1)', width: '100%', maxWidth: 700, opacity: 0.25, pointerEvents: 'none', mixBlendMode: 'screen' }} />
+          style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%) ', width: '100%', maxWidth: 700, opacity: 0.25, pointerEvents: 'none', mixBlendMode: 'screen' }} />
 
         <FadeIn>
           <div style={{ position: 'relative', zIndex: 2 }}>
