@@ -99,6 +99,7 @@ useEffect(() => {
   audio.volume = 0.5;
   audio.play().catch(() => {});
 }, [envelopeOpen]);
+
   // ── Styles ────────────────────────────────────────────────────────────────
   const BG = '#0A0800';
   const GOLD = '#C9A84C';

@@ -41,7 +41,7 @@ import dressCodeIcon from '../assets/dress-code-icon.png';
 import itinerarioBackground from '../assets/background.png';
 import vivaLaVida from '../assets/vivalavida.mp3';
 
-import qrAlbum from '../assets/qr-renata.png';
+import qrAlbum from '../assets/qr-renata2.png';
 
 
 const DRIVE_ALBUM_URL = 'https://drive.google.com/drive/folders/1fLdiSfqxO0_wVnpzFievMCzbUfyuZjsv?usp=sharing';
