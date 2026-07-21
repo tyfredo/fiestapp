@@ -7,6 +7,7 @@ import ScrollToTop from './components/ScrollToTop';
 import logoFiestapp from './assets/logo.png';
 import RenataXVLayout from './layouts/RenataXVLayout';
 import DulceXVLayout from './layouts/DulceXVLayout';
+import SarahiAndSebastian from './layouts/SarahiAndSebastian';
 
 // --- DATOS DE PREGUNTAS FRECUENTES ---
 const faqData = [
@@ -337,6 +338,7 @@ function App() {
         <Route path="/bautizo-infantil-demo" element={<KidsLayout />} />
         <Route path="/xv-renata" element={<RenataXVLayout />} />
         <Route path="/xv-dulce" element={<DulceXVLayout />} /> 
+        <Route path="/sarahi-sebastian" element={<SarahiAndSebastian />} />
       </Routes>
     </Router>
   );
