@@ -353,7 +353,7 @@ const SarahiAndSebastian = () => {
             <p className="script-title" style={{ fontSize: 32, color: INK, marginBottom: 4 }}>Ceremonia Religiosa</p>
             <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 600, marginBottom: 2 }}>5:00 pm</p>
             <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 12, letterSpacing: '0.08em', color: '#6b6b5a', marginBottom: 4 }}>Parroquia Santa Margarita María de Alacoque</p>
-            <a href="https://maps.app.goo.gl/kn5c2SVXb15afDdt5" className="btn-outline-olive" style={{ marginTop: 14 }}>Ver ubicación</a>
+            <a href="https://maps.app.goo.gl/vu7biDrRPX3VEKJq7" className="btn-outline-olive" style={{ marginTop: 14 }}>Ver ubicación</a>
           </div>
         </FadeIn>
 
@@ -363,7 +363,7 @@ const SarahiAndSebastian = () => {
             <p className="script-title" style={{ fontSize: 32, color: INK, marginBottom: 4 }}>Recepción</p>
             <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 600, marginBottom: 2 }}>6:00 pm</p>
             <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 12, letterSpacing: '0.08em', color: '#6b6b5a', marginBottom: 4 }}>Casa de Eventos Gran Cañada</p>
-            <a href="https://maps.app.goo.gl/vu7biDrRPX3VEKJq7" className="btn-outline-olive" style={{ marginTop: 14 }}>Ver ubicación</a>
+            <a href="https://maps.app.goo.gl/kn5c2SVXb15afDdt5" className="btn-outline-olive" style={{ marginTop: 14 }}>Ver ubicación</a>
           </div>
         </FadeIn>
       </section>
