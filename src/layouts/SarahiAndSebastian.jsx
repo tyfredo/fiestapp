@@ -10,6 +10,7 @@ import iconRecepcion from '../assets/sarahi/icon-recepcion.png';
 import iconCena      from '../assets/sarahi/icon-cena.png';
 import iconBaile     from '../assets/sarahi/icon-baile.png';
 import iconFiesta    from '../assets/sarahi/icon-fiesta.png';
+import iconVals      from '../assets/sarahi/icon-vals.png';
 import iconDresscode from '../assets/sarahi/icon-dresscode.png';
 import logoFiestapp  from '../assets/logo.png';
 
@@ -322,7 +323,7 @@ const SarahiAndSebastian = () => {
           </p>
           <Divider />
           <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 10, letterSpacing: '0.4em', textTransform: 'uppercase', color: OLIVE, marginBottom: 16 }}>
-            Padrinos de Velación
+            Padrinos
           </p>
           <p className="script-title" style={{ fontSize: 30, color: INK }}>Karla Ponce &amp; Arthuro Jaime</p>
         </FadeIn>
@@ -352,7 +353,7 @@ const SarahiAndSebastian = () => {
             <p className="script-title" style={{ fontSize: 32, color: INK, marginBottom: 4 }}>Ceremonia Religiosa</p>
             <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 600, marginBottom: 2 }}>5:00 pm</p>
             <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 12, letterSpacing: '0.08em', color: '#6b6b5a', marginBottom: 4 }}>Parroquia Santa Margarita María de Alacoque</p>
-            <a href="#" className="btn-outline-olive" style={{ marginTop: 14 }}>Ver ubicación</a>
+            <a href="https://maps.app.goo.gl/kn5c2SVXb15afDdt5" className="btn-outline-olive" style={{ marginTop: 14 }}>Ver ubicación</a>
           </div>
         </FadeIn>
 
@@ -362,7 +363,7 @@ const SarahiAndSebastian = () => {
             <p className="script-title" style={{ fontSize: 32, color: INK, marginBottom: 4 }}>Recepción</p>
             <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 20, fontWeight: 600, marginBottom: 2 }}>6:00 pm</p>
             <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 12, letterSpacing: '0.08em', color: '#6b6b5a', marginBottom: 4 }}>Casa de Eventos Gran Cañada</p>
-            <a href="#" className="btn-outline-olive" style={{ marginTop: 14 }}>Ver ubicación</a>
+            <a href="https://maps.app.goo.gl/vu7biDrRPX3VEKJq7" className="btn-outline-olive" style={{ marginTop: 14 }}>Ver ubicación</a>
           </div>
         </FadeIn>
       </section>
@@ -381,9 +382,9 @@ const SarahiAndSebastian = () => {
             <ItinerarioItem icon={iconIglesia}   hora="5:00 pm"  texto="Ceremonia Religiosa" />
             <ItinerarioItem icon={iconRecepcion} hora="6:00 pm"  texto="Recepción" />
             <ItinerarioItem icon={iconCena}      hora="7:00 pm"  texto="Banquete y Cena" />
-            <ItinerarioItem icon={iconBaile}     hora="8:00 pm"  texto="Primer Baile y Vals" />
-            <ItinerarioItem icon={iconFiesta}    hora="8:15 pm"  texto="¡A Bailar! Música y Fiesta" />
-            <ItinerarioItem icon={iconFiesta}    hora="2:00 am"  texto="Nos Vamos" isLast />
+            <ItinerarioItem icon={iconVals}     hora="8:00 pm"  texto="Primer Baile y Vals" />
+            <ItinerarioItem icon={iconBaile}    hora="8:15 pm"  texto="¡A Bailar! Música y Fiesta" />
+            <ItinerarioItem icon={iconFiesta}    hora="2:00 am"  texto="Felices para Siempre" isLast />
           </div>
         </FadeIn>
       </section>
