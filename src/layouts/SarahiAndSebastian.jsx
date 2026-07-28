@@ -323,7 +323,7 @@ const SarahiAndSebastian = () => {
           </p>
           <Divider />
           <p style={{ fontFamily: "'Jost', sans-serif", fontSize: 10, letterSpacing: '0.4em', textTransform: 'uppercase', color: OLIVE, marginBottom: 16 }}>
-            Padrinos
+            Padrinos de Velación
           </p>
           <p className="script-title" style={{ fontSize: 30, color: INK }}>Karla Ponce &amp; Arthuro Jaime</p>
         </FadeIn>

@@ -8,6 +8,7 @@ import logoFiestapp from './assets/logo.png';
 import RenataXVLayout from './layouts/RenataXVLayout';
 import DulceXVLayout from './layouts/DulceXVLayout';
 import SarahiAndSebastian from './layouts/SarahiAndSebastian';
+import NayelyXVLayout from './layouts/NayelyXVLayout';
 
 // --- DATOS DE PREGUNTAS FRECUENTES ---
 const faqData = [
@@ -339,6 +340,7 @@ function App() {
         <Route path="/xv-renata" element={<RenataXVLayout />} />
         <Route path="/xv-dulce" element={<DulceXVLayout />} /> 
         <Route path="/sarahi-sebastian" element={<SarahiAndSebastian />} />
+        <Route path="/xv-nayely" element={<NayelyXVLayout />} />
       </Routes>
     </Router>
   );
