@@ -23,14 +23,15 @@ import nay4 from '../assets/nay4.jpeg';
 import nay5 from '../assets/nay5.jpeg';
 import nay6 from '../assets/nay6.jpeg';
 import nay7 from '../assets/nay7.jpeg';
+import nay77 from '../assets/nay77.jpeg';
 import nay8 from '../assets/nay8.jpeg';
 import nay9 from '../assets/nay9.jpeg';
 
 // Canción
-import yearsAudio from '../assets/years.mp3';
+import yearsAudio from '../assets/years.m4a';
 // ────────────────────────────────────────────────────────────────────────────
 
-const GALLERY_PHOTOS = [nay1, nay2, nay3, nay4, nay5, nay6, nay7, nay8, nay9];
+const GALLERY_PHOTOS = [nay1, nay2, nay3, nay4, nay5, nay6, nay7, nay77, nay8, nay9];
 
 // ── FADE-IN ON SCROLL ────────────────────────────────────────────────────────
 const FadeIn = ({ children, delay = 0, className = '' }) => {
