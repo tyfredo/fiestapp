@@ -21,6 +21,7 @@ import banderinAImg   from '../assets/a.png';
 import banderinIImg   from '../assets/i.png';
 import banderinRImg   from '../assets/r.png';
 import banderinMImg   from '../assets/m.png';
+import son from '../assets/son.mp3';
 // ─────────────────────────────────────────────────────────────────────────────
 
 const V   = '#006847';
@@ -119,13 +120,23 @@ const IrmaLayout = () => {
   const [hidden, setHidden] = useState(false);
   const [heroOpacity, setHeroOpacity] = useState(1);
   const heroRef = useRef();
+  const [envelopeOpen, setEnvelopeOpen] = useState(false);
 
   const fechaCumple = '2026-09-04T16:00:00';
 
   const handleOpen = () => {
     setOpened(true);
+    setEnvelopeOpen(true);
     setTimeout(() => setHidden(true), 1400);
   };
+    // Autoplay música al abrir el sobre
+  useEffect(() => {
+    if (!envelopeOpen) return;
+    const audio = new Audio(son);
+    audio.loop = true;
+    audio.volume = 0.5;
+    audio.play().catch(() => {});
+  }, [envelopeOpen]);
 
   // Efecto parallax / fade en el hero al scrollear
   useEffect(() => {
@@ -309,7 +320,7 @@ const IrmaLayout = () => {
               </h1>
               <img src={cincuentaImg} alt="50"
                 style={{
-                  width: 'clamp(54px, 14vw, 88px)',
+                  width: 'clamp(100px, 14vw, 100px)',
                   objectFit: 'contain',
                   filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.15))',
                   marginTop: 4,
