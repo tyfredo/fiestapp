@@ -9,6 +9,7 @@ import RenataXVLayout from './layouts/RenataXVLayout';
 import DulceXVLayout from './layouts/DulceXVLayout';
 import SarahiAndSebastian from './layouts/SarahiAndSebastian';
 import NayelyXVLayout from './layouts/NayelyXVLayout';
+import IrmaLayout from './layouts/IrmaLayout';
 
 // --- DATOS DE PREGUNTAS FRECUENTES ---
 const faqData = [
@@ -341,6 +342,7 @@ function App() {
         <Route path="/xv-dulce" element={<DulceXVLayout />} /> 
         <Route path="/sarahi-sebastian" element={<SarahiAndSebastian />} />
         <Route path="/xv-nayely" element={<NayelyXVLayout />} />
+        <Route path="/irma" element={<IrmaLayout />} />
       </Routes>
     </Router>
   );
