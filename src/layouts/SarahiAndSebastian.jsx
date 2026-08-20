@@ -385,9 +385,9 @@ const SarahiAndSebastian = () => {
       }}>
         {/* Flores decorativas hero */}
         <img src={flor2} alt="" style={{
-          position: 'absolute', bottom: -10, left: -20, width: 200,
+          position: 'absolute', bottom: -10, left: -20, width: 160,
           opacity: 0.55, pointerEvents: 'none',
-          transform: 'rotate(-10deg)',
+          
         }} />
         <img src={flor1} alt="" style={{
           position: 'absolute', top: -10, right: -16, width: 180,
