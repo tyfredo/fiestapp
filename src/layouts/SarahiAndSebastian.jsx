@@ -529,7 +529,7 @@ const SarahiAndSebastian = () => {
         </FadeIn>
       </section>
 
-      {/* ═══════════════════════════════════════════════════════════════════
+           {/* ═══════════════════════════════════════════════════════════════════
           9. DRESS CODE
           ═══════════════════════════════════════════════════════════════════ */}
       <section style={{ padding: '10px 24px 80px', textAlign: 'center' }}>
@@ -543,10 +543,32 @@ const SarahiAndSebastian = () => {
           <div style={{ maxWidth: 460, margin: '0 auto' }}>
             <p style={{ fontFamily: "'Jost',sans-serif", fontSize: 10, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#8a8a78', marginBottom: 18 }}>Colores Sugeridos</p>
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '18px 22px' }}>
-              {COLORES_INVITADOS.map(c => (
+              {[
+                { nombre: 'Azul Humo',    hex: '#8FA3B0' },
+                { nombre: 'Verde Oliva',  hex: '#5C6640' },
+                { nombre: 'Chocolate',    hex: '#4A342A' },
+                { nombre: 'Gris Carbón',  hex: '#4B4B4B' },
+                { nombre: 'Vino',         hex: '#5C1E24' },
+                { nombre: 'Ciruela Suave',hex: '#5A4256' },
+                { nombre: 'Sage Green',   hex: '#8A9E7E' },
+                { nombre: 'Camel',        hex: '#C19A6B' },
+                { nombre: 'Taupe / Mocha',hex: '#8D7B6A' },
+                { nombre: 'Dusty Rose',   hex: '#C9918E' },
+                { nombre: 'Dusty Beige',  hex: '#D4B89A' },
+              ].map(c => (
                 <div key={c.nombre} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: 78 }}>
-                  <div style={{ width: 40, height: 40, borderRadius: '50%', background: c.hex, border: '1px solid rgba(0,0,0,0.08)', boxShadow: '0 2px 6px rgba(0,0,0,0.12)' }} />
-                  <span style={{ fontFamily: "'Jost',sans-serif", fontSize: 9, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b6b5a', marginTop: 8, lineHeight: 1.3 }}>{c.nombre}</span>
+                  <div style={{
+                    width: 40, height: 40, borderRadius: '50%',
+                    background: c.hex,
+                    border: '1px solid rgba(0,0,0,0.08)',
+                    boxShadow: '0 2px 6px rgba(0,0,0,0.12)',
+                  }} />
+                  <span style={{
+                    fontFamily: "'Jost',sans-serif", fontSize: 9,
+                    letterSpacing: '0.05em', textTransform: 'uppercase',
+                    color: '#6b6b5a', marginTop: 8, lineHeight: 1.3,
+                    textAlign: 'center',
+                  }}>{c.nombre}</span>
                 </div>
               ))}
             </div>
