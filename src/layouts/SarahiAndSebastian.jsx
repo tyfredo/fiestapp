@@ -455,7 +455,12 @@ const SarahiAndSebastian = () => {
             Karla Ponce
           </p>
           <p style={{ fontFamily: "'Cormorant Garamond',serif", fontStyle: 'italic', fontSize: 18, color: OLIVE, margin: '4px 0' }}>
-            y
+                
+            <p className="script-title" style={{ fontSize: 30, color: INK, lineHeight: 1.3 }}>
+            &amp;
+          </p>
+            
+
           </p>
           <p className="script-title" style={{ fontSize: 30, color: INK, lineHeight: 1.3 }}>
             Arturo Jaime
