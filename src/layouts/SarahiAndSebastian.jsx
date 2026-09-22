@@ -3,7 +3,7 @@ import RSVPButton from '../components/RSVPButton';
 
 // ── ASSETS ──────────────────────────────────────────────────────────────────
 import foto1 from '../assets/sarahi/foto-2.jpeg';
-import foto2 from '../assets/sarahi/foto-2.png';
+import foto2 from '../assets/sarahi/foto-1.jpeg';
 import foto3 from '../assets/sarahi/foto-3.jpeg';
 import fraseImg      from '../assets/sarahi/frase.png';
 import iconIglesia   from '../assets/sarahi/icon-iglesia.png';
@@ -608,7 +608,7 @@ const SarahiAndSebastian = () => {
         <FadeIn>
           <p style={{ fontFamily: "'Jost',sans-serif", fontSize: 10, letterSpacing: '0.4em', textTransform: 'uppercase', color: OLIVE, marginBottom: 14 }}>Confirmación</p>
           <p style={{ fontFamily: "'Cormorant Garamond',serif", fontStyle: 'italic', fontSize: 17, color: '#5c5c4d', maxWidth: 420, margin: '0 auto 22px', lineHeight: 1.8 }}>
-            Agradecemos que confirmes tu asistencia antes del 20 de Septiembre.
+            Agradecemos que confirmes tu asistencia antes del 20 de Octubre.
           </p>
           <Divider />
           <p className="script-title" style={{ fontSize: 30, color: INK, marginTop: 18 }}>¡Esperamos contar con su presencia!</p>
