@@ -444,7 +444,7 @@ const SarahiAndSebastian = () => {
       {/* ═══════════════════════════════════════════════════════════════════
           4. PADRINOS DE VELACIÓN
           ═══════════════════════════════════════════════════════════════════ */}
-      <section style={{ padding: '10px 24px 70px', textAlign: 'center' }}>
+      <section style={{ padding: '10px 24px 50px', textAlign: 'center' }}>
         <FadeIn>
           <Divider />
           <p style={{ fontFamily: "'Jost',sans-serif", fontSize: 10, letterSpacing: '0.4em', textTransform: 'uppercase', color: OLIVE, marginBottom: 20 }}>
@@ -459,11 +459,31 @@ const SarahiAndSebastian = () => {
             <p className="script-title" style={{ fontSize: 30, color: INK, lineHeight: 1.3 }}>
             &amp;
           </p>
-            
-
           </p>
           <p className="script-title" style={{ fontSize: 30, color: INK, lineHeight: 1.3 }}>
             Arturo Jaime
+          </p>
+        </FadeIn>
+      </section>
+
+      <section style={{ padding: '1px 21px 70px', textAlign: 'center' }}>
+        <FadeIn>
+          <Divider />
+          <p style={{ fontFamily: "'Jost',sans-serif", fontSize: 10, letterSpacing: '0.4em', textTransform: 'uppercase', color: OLIVE, marginBottom: 20 }}>
+            Padrinos de Anillos
+          </p>
+          {/* Nombres correctos */}
+          <p className="script-title" style={{ fontSize: 30, color: INK, lineHeight: 1.3 }}>
+            Luz María Díaz Campos
+          </p>
+          <p style={{ fontFamily: "'Cormorant Garamond',serif", fontStyle: 'italic', fontSize: 18, color: OLIVE, margin: '4px 0' }}>
+                
+            <p className="script-title" style={{ fontSize: 30, color: INK, lineHeight: 1.3 }}>
+            &amp;
+          </p>
+          </p>
+          <p className="script-title" style={{ fontSize: 30, color: INK, lineHeight: 1.3 }}>
+            Diego Alfredo Martínez Matías
           </p>
         </FadeIn>
       </section>
